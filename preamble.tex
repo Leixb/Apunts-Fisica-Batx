@@ -1,0 +1,124 @@
+\documentclass[12pt,oneside]{article}
+\usepackage[a4paper, left=2.5cm, right=2.5cm, top=2.5cm, bottom=1in]{geometry}
+
+\usepackage{amsmath} 
+\usepackage{amssymb} 
+\usepackage{amstext}
+\usepackage{amsthm}
+
+% for bibliography:
+\usepackage{comment} 
+%\usepackage[ backend=biber, style=chicago ]{biblatex}
+\usepackage[
+backend=biber,
+style=numeric,
+]{biblatex}
+\DeclareNameAlias{default}{last-first}
+
+\addbibresource{biblio.bib}
+% see:
+% https://www.sharelatex.com/learn/Bibliography_management_in_LaTeX#The_bibliography_file
+
+\usepackage[export]{adjustbox}
+\usepackage{tikz}
+\usetikzlibrary{arrows}
+\usetikzlibrary{scopes}
+\usetikzlibrary{babel}
+
+% For cross references 
+%\usepackage{hyperref} 
+\usepackage[colorlinks = true]{hyperref}
+\usepackage[catalan]{varioref}
+%\usepackage{cleveref}
+%hyperref configuration so that it doesn't contrast so much colorlinks,
+\usepackage{xcolor} 
+\hypersetup{ 
+   linkcolor={black},
+   citecolor={black}, 
+   %linkcolor={red!50!black},
+   %citecolor={blue!50!black}, 
+   urlcolor={blue!80!black} }
+
+% Custom Math operators (functions not in italic in math mode):
+\DeclareMathOperator{\arcsec}{arcsec} 
+\DeclareMathOperator{\arccot}{arccot}
+\DeclareMathOperator{\arccsc}{arccsc} 
+\DeclareMathOperator{\cis}{cis}
+
+\usepackage[catalan]{babel} %Names in spanish
+\usepackage[utf8]{inputenc} %Use unicode
+\usepackage[T1]{fontenc}
+\usepackage{csquotes} %For bibliography quotations
+\DeclareQuoteAlias{spanish}{catalan}
+
+\usepackage{array} 
+\usepackage{float}  %Force tables and images position (H and H!)
+\usepackage{wrapfig} %Wrap images like in HTML
+\usepackage{listings} %For code blocks
+\usepackage{color}  %Custom colors for syntax highlight in listings
+
+\usepackage{tabularx,colortbl} %Better tables
+\usepackage{booktabs,siunitx} %Better tables and SI units and uncertainties
+\sisetup{separate-uncertainty=true}
+\sisetup{locale = FR} %commas and so on for spanish
+\sisetup{
+  per-mode=fraction,
+  fraction-function=\nicefrac
+}
+\usepackage{multirow}
+\usepackage{multicol}
+\usepackage{makecell}%Slit cell in lines and more formating options inside table
+
+\usepackage{datetime} %To customize date
+
+\newdateformat{monthyeardate}{%
+    \monthname[\THEMONTH], \THEYEAR}
+%Now \monthyeardate\today gives the date without the day
+
+\usepackage[framemethod=tikz]{mdframed} 
+\usepackage{nicefrac} %nice fractions in one line
+
+%Subfigures
+\usepackage{subcaption} 
+\usepackage{relsize} %Bigger math with mathlarger{___}
+
+\usepackage[bottom]{footmisc} %footnote at the bottom
+
+%\usepackage{multicol}
+
+\definecolor{codegreen}{rgb}{0,0.6,0} 
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{mystyle}{ backgroundcolor=\color{backcolour},
+    commentstyle=\color{codegreen}, keywordstyle=\color{blue},
+    numberstyle=\tiny\color{codegray}, stringstyle=\color{red},
+    identifierstyle=\color{black}, basicstyle=\footnotesize,
+    %breakatwhitespace=false,         
+    breaklines=true,                 
+    %captionpos=b,                    keepspaces=true,                 
+    numbers=left,                    numbersep=5pt,
+    showspaces=false,                
+    %showstringspaces=false, showtabs=false,                  
+    tabsize=4 }
+
+\lstset{style=mystyle}
+
+
+%\renewcommand{\figurename}{Fig.} \renewcommand{\tablename}{Tabla}
+%tabla-es in babel better
+
+\definecolor{lightblue}{RGB}{135,206,250}
+
+% Add command before appendix session for page numbering: A-1
+\newcommand{\appendixpagenumbering}{
+    \break
+    \pagenumbering{arabic}
+    \renewcommand{\thepage}{\thesection-\arabic{page}}
+}
+
+\newcommand{\whitepage}{
+    \clearpage\thispagestyle{empty}\addtocounter{page}{-1} \newpage \clearpage
+}
+

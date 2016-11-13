@@ -1,0 +1,1069 @@
+\input{preamble}
+
+\usetikzlibrary{decorations.pathmorphing,patterns}
+\usetikzlibrary{3d}
+\usepackage[siunitx]{circuitikz}
+
+\let\oldsection\section
+\renewcommand\section{\clearpage\oldsection}
+
+\begin{document}
+
+\title {Física NS}\author {Aleix Boné}\date {\today}\maketitle
+
+\pagebreak
+
+\tableofcontents
+\pagebreak
+
+\section{Cinemàtica}
+\label{sec:cinematica}
+
+\begin{align}
+    \label{equ:Vel.Mitjana}
+    \vec{V_m}&=\frac{\Delta \vec{r}}{\Delta t} \\
+    \label{equ:Vel.Instantanea}
+    \vec{v}&=\frac{d \vec{r}}{d t}\\
+    \label{equ:Acc.Mitjana}
+    \vec{A_m}&=\frac{\Delta \vec{v}}{\Delta t}\\
+    \label{equ:Acc.Instantanea}
+    \vec{a}&=\frac{d \vec{v}}{d t} &= \frac{d^2 \vec{r}}{d t^2}
+\end{align}
+
+\subsection{Moviment Rectilini Uniforme (MRU)}
+\begin{align}\label{equ:Vel. MRU}
+    v &= ctt \notag \\
+    v &= \frac{d \vec{r}}{d t} &\rightarrow \int_{r_0}^r dr &= \int_{t_0}^t v * dt \notag \\
+    && v \int_0^t dt &= r \bigg |_{r_0}^r \notag\\
+    r &= r_0 + v*t 
+\end{align}
+
+\subsection{Moviment Rectilini Uniformement Accelerat (MRUA)}
+\begin{align}\label{equ:Vel. MRUA}
+    a &= ctt \notag \\
+    a &= \frac{d \vec{v}}{d t} &\rightarrow \int_{v_0}^v dv &= \int_{t_0}^t a * dt \notag \\
+    && a \int_0^t dt &= v \bigg |_{v_0}^v \notag\\
+    v &= v_0 + a*t 
+\end{align}
+
+\begin{align}\label{equ:Pos. MRUA}
+    v &= v_0 + a*t  \notag \\
+    v &= \frac{d \vec{r}}{d t} &\rightarrow \int_{r_0}^r dr &= \int_{t_0}^t v_0 + a*t * dt \notag \\
+    && v_0 \int_0^t dt + \int_0^t a*t*dt &= r \bigg |_{r_0}^r \notag\\
+    r - r_0 &= v_0*t+\frac{1}{2}at^2 
+\end{align}
+
+\subsection{Tir Parabòlic}
+\begin{align}\label{Tir Parabolic}
+    \vec{r} &= X(t)i & + Y(t)j \notag \\
+    & MRU &  MRUA \notag \\
+    & \downarrow  & \downarrow \notag \\
+    \vec{r} &= (x_0+v_0*\cos(\theta)) \imath & + (y_0 + v_0*\sin(\theta)*t - \frac{1}{2}gt^2) \jmath
+\end{align}
+
+Inclinació en un punt P:
+\begin{equation}\label{eqi:Inclinacio tir parabolic}
+    \beta = tan^{-1}\bigg(\bigg|\frac{V_Py}{V_Px}\bigg|\bigg)
+\end{equation}
+
+\subsection{Moviment Circular}
+\begin{align*}
+    R &= \text{radi} &= ctt \\
+    \phi &= \text{angle} \\
+    \omega &= \text{velocitat angular} &= \frac{\Delta \phi}{\Delta t} \\
+    \alpha &= \text{acceleració angular} &= \frac{\Delta \omega}{\Delta t} \\
+    T &= \text{període} &= \frac{2\pi}{\omega} \\
+    v &= \omega * R \\
+    \vec{a} &= \vec{a_c} + \vec{a_t} \\
+    \vec{a_t} &= \alpha * R \\
+    \vec{a_c} &= \omega^2*R &= \frac{v^2}{R}
+\end{align*}
+
+\section{Dinàmica}
+\label{sec:dinamica}
+
+\section{Treball i energia}
+\label{sec:treball_i_energia}
+
+\section{Impuls}
+\label{sec:impuls}
+
+\subsection{Xocs}
+\label{sub:xocs}
+
+
+
+\section{Camp gravitatori}
+\label{sec:camp_gravitatori}
+
+\subsection{Llei de la gravitació universal de Newton}
+\label{sub:llei_de_la_gravitacio_universal}
+\begin{equation} \label{eq:gravitacio_universal}
+    \vec{F}_{AB} = -G\frac{m_Am_B}{r^2} \hat{u}_r
+\end{equation}
+
+\begin{equation}\label{eq:constant_grav_universal}
+    G = \SI{6.67408(31)e-11}{\newton\metre\squared\per\kilo\gram\squared}
+\end{equation}
+
+\begin{figure}[H]
+    \centering
+    \caption{Força gravitatòria entre dos cosos}
+    \label{fig:forca_grav}
+    \begin{tikzpicture}
+        \draw [gray!75,thick, dashed] (-2,0) -- (10,0);
+        \node [gray!75,left] at (-2,0) {$\hat{u}_r$};
+        \draw [thick,fill=white] (0,0) circle (1) node {$m_A$};
+        \draw [thick,fill=white] (7,0) circle (2) node {$m_B$};
+        \draw [->,very thick] (1,0) -- node[above]{$F_{BA}$}(2.5,0);
+        \draw [->,very thick] (5,0) -- node[above]{$F_{AB}$}(3.5,0);
+        \draw [|-|,thick] (0,-2.5) -- node[above] {$r$} (7,-2.5);
+    \end{tikzpicture}
+\end{figure}
+
+\vspace{1cm}
+
+\begin{multicols}{2}
+
+    \subsection{Intensitat del camp}
+    \label{sub:intensitat_del_camp}
+
+    \begin{equation}
+        \vec{g} = -G \frac{M}{r^2} \hat{u}_r
+    \end{equation}
+
+    \subsection{Velocitat orbital}
+    \label{sub:velocitat_orbital}
+
+    \begin{equation}
+        V = \sqrt{\frac{GM}{r}}
+    \end{equation}
+
+    \subsection{Velocitat d'escapament}
+    \label{sub:velocitat_d_escapament}
+
+    \begin{equation}
+        \sqrt{2G\frac{M}{r}} = \sqrt{2}V_\text{orbital}
+    \end{equation}
+
+\end{multicols}
+
+\subsection{Energies}
+\label{sub:energies}
+
+\begin{multicols}{2}
+    \subsubsection{Energia Potencial}
+    \label{ssub:energia_potencial}
+    \begin{equation}
+        E_p = -G \frac{Mm}{r}
+    \end{equation}
+
+    \subsubsection{Energia cinètica}
+    \label{ssub:energia_cinetica}
+    \begin{equation}
+        E_c = \frac{1}{2} G\frac{Mm}{r}
+    \end{equation}
+
+    \subsubsection{Energia mecànica}
+    \label{ssub:energia_mecanica}
+    \begin{equation}
+        E_m = -\frac{1}{2} G \frac{Mm}{r}
+    \end{equation}
+\end{multicols}
+
+\pagebreak
+
+\subsection{Lleis de Kepler}
+\label{sub:lleis_de_kepler}
+
+\begin{enumerate}
+    \item Els planetes orbiten el sol de forma el·líptica i el sol ocupa un focus.
+        \begin{equation}
+            \varepsilon = \frac{a}{b} = \text{excentricitat de l'òrbita}
+        \end{equation}
+    \item El vector $\vec{r}$ escombra àrees iguals en temps iguals, per tant, la velocitat varia durant l'òrbita del planeta. 
+    \item El període al quadrat es directament proporcional al radi de l'òrbita al cub. Suposant que l'\textbf{òrbita sigui circular}:
+        \vspace{1cm}
+        \begin{equation}
+            T^2 = \frac{4\pi}{GM}r^3
+        \end{equation}
+\end{enumerate}
+
+\vspace{1cm}
+
+\begin{center}
+    \begin{tikzpicture}
+        \begin{scope}
+            \clip (0,0) ellipse (5 and 3); 
+            \fill[blue!15] (0,0) -- (1,3) -- (5,3) -- (5,0) -- (0,0);  
+        \end{scope}
+        \begin{scope}
+            \clip (0,0) ellipse (5 and 3); 
+            \fill[green!15] (0,0) -- (-3,-2) -- (-5,-3) -- (2,-3) -- (0,0);
+        \end{scope}
+        \node at (2,1) {$A$};
+        \node at (-0.75,-2) {$A$};
+        \shade[ball color=white] (0,0) circle (1) node {$M$};
+        \draw (0,0) ellipse (5 and 3);
+        %\draw (0,0) ellipse (5.2 and 3.2);
+        \shade[ball color=white] (5,0) circle (0.3) node {$m$};
+    \end{tikzpicture}
+\end{center}
+
+\section{Camp elèctric}
+\label{sec:camp_electric}
+
+\subsection{Llei de Coulomb}
+\begin{equation}
+    \vec{F} = k\frac{q_1q_2}{r^2} \hat{u} _r
+\end{equation}
+\begin{equation}
+    k = \SI{9e9}{\newton\metre\squared\per\coulomb\squared} \qquad \text{(constant de coulomb)}
+\end{equation}
+
+\begin{figure}[H]
+    \centering
+    \caption{Força elèctrica entre dues càrregues}
+    \label{fig:forca_ele}
+    \begin{tikzpicture}
+        \draw [gray!75,thick, dashed] (-3,0) -- (8,0);
+        \node [gray!75,left] at (-3,0) {$\hat{u}_r$};
+        \draw [gray!75,thick, dashed] (-3,-1.5) -- (8,-1.5);
+        \node [gray!75,left] at (-3,-1.5) {$\hat{u}_r$};
+        \draw [gray!75,thick, dashed] (-3,-3) -- (8,-3);
+        \node [gray!75,left] at (-3,-3) {$\hat{u}_r$};
+
+        \draw [thick,fill=blue!75] (0,0) circle (0.3) node[font=\bf] {$-$};
+        \draw [thick,fill=red!75] (5,0) circle (0.3) node[font=\bf] {+};
+        \draw [->,very thick] (0.3,0) -- node[above]{$F_{21}$}(2,0);
+        \draw [->,very thick] (4.7,0) -- node[above]{$F_{12}$}(3,0);
+
+        \draw [thick,fill=red!75] (0,-1.5) circle (0.3) node[font=\bf] {$+$};
+        \draw [thick,fill=red!75] (5,-1.5) circle (0.3) node[font=\bf] {+};
+        \draw [->,very thick] (-0.3,-1.5) -- node[above]{$F_{21}$}(-1.5,-1.5);
+        \draw [->,very thick] (5.3,-1.5) -- node[above]{$F_{12}$}(7,-1.5);
+
+        \draw [thick,fill=blue!75] (0,-3) circle (0.3) node[font=\bf] {$-$};
+        \draw [thick,fill=blue!75] (5,-3) circle (0.3) node[font=\bf] {$-$};
+        \draw [->,very thick] (-0.3,-3) -- node[above]{$F_{21}$}(-2,-3);
+        \draw [->,very thick] (5.3,-3) -- node[above]{$F_{12}$}(7,-3);
+
+        \draw [|-|,thick] (0,-3.7) -- node[above] {$r$} (5,-3.7);
+
+        \node[above] at (0,0.3) {$q_1$};
+        \node[above] at (5,0.3) {$q_2$};
+        \node[above] at (0,0.3-1.5) {$q_1$};
+        \node[above] at (5,0.3-1.5) {$q_2$};
+        \node[above] at (0,0.3-3) {$q_1$};
+        \node[above] at (5,0.3-3) {$q_2$};
+    \end{tikzpicture}
+\end{figure}
+
+\subsection{Camp elèctric d'una càrrega}
+\label{sub:camp_electric_duna_carrega}
+
+\begin{multicols}{2}
+    
+
+El camp elèctric $\vec{E}$ d'una càrrega $Q$ a una distància $r$ de $Q$ ve determinat per:
+\begin{equation}
+    \vec{E} = k\frac{Q}{r^2} \hat{u}_r
+\end{equation}
+
+\columnbreak
+
+En general, el camp elèctric a un punt $P$ ve determinat per la suma vectorial
+dels camps elèctrics de totes les càrregues:
+\begin{equation}
+    \vec{E}_P = \sum_{i=1}^n \vec{E}_i 
+\end{equation}
+
+
+\end{multicols}
+
+    
+
+\subsection{Energia electrostàtica}
+\begin{multicols}{2}
+
+\label{sub:energia_electrostatica}
+L'energia electrostàtica d'un sistema amb dues càrregues $q$ i $Q$ separades $r$ és:
+\begin{equation}
+    U = k \frac{qQ}{r}
+\end{equation}
+
+En general, l'energia electrostàtica d'un sistema amb $n$ càrregues és la suma
+de l'energia electrostàtica entre totes les càrregues:
+
+\begin{equation}
+    U_T = \mathlarger{\sum_{i=1}^n} \sum_{j=1}^n U_{ji}
+\end{equation}
+
+El treball es igual a menys la variació d'energia electrostàtica:
+
+\begin{equation}
+    W = - \Delta U
+\end{equation}
+
+\end{multicols}
+
+\subsection{Potencial electrostàtic (Voltatge)}
+\label{sub:potencial_electrostatic_voltatge_}
+
+\begin{multicols}{2}
+
+\begin{equation}
+    V = \frac{U}{q} = k \frac{Q}{r} \qquad \left[\si{\volt} = \si{\kilo\gram\metre\squared\per\second\cubed\per\ampere} \right]
+\end{equation}
+
+\subsubsection{Relació entre E i V}
+\label{ssub:relaci_entre_e_i_v}
+
+\begin{equation}
+    \vec{E} = - \vec{\nabla} V = - \frac{dV}{dr} \hat{u}_r
+\end{equation}
+
+
+\end{multicols}
+
+
+
+
+\section{Camp magnètic}
+\label{sec:camp_magnetic}
+
+\begin{equation}
+    \vec{B} \qquad \left[ \si{\tesla} = \si{\kilo\gram\per\ampere\per\second\squared}\right]
+\end{equation}
+
+\subsection{Llei de Lorenz}
+\label{sub:llei_de_lorenz}
+
+La força electromaètica induïda sobre una càrrega $q$ que travessa un camp magnètic $\vec{B}$ a una velocitat $\vec{v}$ ve determinada per:
+
+\begin{equation}
+    \vec{F} = q\vec{v}\times \vec{B}
+\end{equation}
+
+\begin{figure}[H]
+    \centering
+    \caption{Forca magnètica induïda sobre una càrrega en moviment}
+    \label{fig:fem_induida}
+    \begin{tikzpicture}
+        %\draw[help lines] (0,0) grid (10,10);
+        \node [gray!75,left] at (0,5) {$\vec{B}\quad$};
+        \foreach \x in {0,...,5} {
+            \foreach \y in {0,...,5}
+            {
+                \draw [color=gray!75,fill] (\x,\y) circle (0.05);
+                \draw [color=gray!75,thick] (\x,\y) circle (0.15);
+            }
+        }
+        \draw[<->,very thick] (1,0.5) -- node[right] {$\vec{F}_m$} (1,4) -- node[above] {$\vec{v}$} (4.5,4);
+        \draw[->,dashed] (1,4) to[out=0,in=125] (5,2);
+        \draw [very thick,fill=white] (1,4) circle (0.5) node {$+q$};
+
+        \draw [fill] (0,0) circle (0.05);
+        \draw [thick] (0,0) circle (0.15);
+        \node[below left] (0,0) at (0,0) {$\hat{k}$};
+        \draw[<->,thick] (0.5,0) -- node[below right] {$\hat{\jmath}$} (0,0) -- node[above left] {$\hat{\imath}$} (0,0.5);
+
+    \end{tikzpicture}
+\end{figure}
+
+La força de Lorenz és sempre perpendicular a $\vec{v}$ i a $\vec{B}$, la magnitud de la força és 
+\begin{equation}
+    qvB\sin\widehat{vB}
+\end{equation}
+
+\subsection{Llei de Biot i Savart}
+\label{sub:llei_de_biot_i_savart}
+
+La llei de Biot i Savart relaciona el camp magnètic amb les corrents que
+el creen.
+
+\begin{equation}
+    d\vec{B} = \frac{\mu_0I}{4\pi} \frac{d\vec{\ell}\times\vec{u}_r}{r^3}
+\end{equation}
+\begin{equation}
+    \mu_0 = \SI{4\pi e-7}{\newton\per\ampere\squared} \qquad \text{(Permeabilitat elèctrica del buit)}
+\end{equation}
+
+
+\begin{center}
+\begin{tikzpicture}[cross/.style={path picture={ 
+  \draw[black]
+(path picture bounding box.south east) -- (path picture bounding box.north west) (path picture bounding box.south west) -- (path picture bounding box.north east);
+}}]
+    \draw[thick] (0,0) -- (0,4);
+    \draw[very thick,|-|] (0,2) -- node[above,sloped] {$d\vec{\ell}$}(0,2.5);
+    %\draw[dashed] (0,2.25) -- (3,2.25);
+    \draw[thick,->] (0,2.25) -- node[above] {$r\vec{u}_r$} (3,2.25);
+    \draw[->] (-0.25,0.5) -- node[above,sloped] {$I$} (-0.25,1);
+    \draw[cross] (3+0.15,2.25) circle (0.15);
+    \node[above] at (3+0.15,2.25+0.15) {$d\vec{B}$};
+\end{tikzpicture}
+\end{center}
+
+\subsection{Camp magnètic d'un cable recte i infinit}
+\label{sub:camp_magn_tic_d_un_cable_recte_i_infinit}
+
+\begin{equation}
+    B = \frac{\mu_0I}{2\pi r}
+\end{equation}
+\begin{center}
+\begin{tikzpicture}[cross/.style={path picture={ 
+  \draw[black]
+(path picture bounding box.south east) -- (path picture bounding box.north west) (path picture bounding box.south west) -- (path picture bounding box.north east);
+}}]
+    \draw[gray!75,dashed] (0,2.25) ellipse(3 and 0.5);
+        \begin{scope}
+            \clip (-3,2.25) circle (0.15);
+            \fill[white] (-3.5,2.25) rectangle (3.5,3.25);  
+        \end{scope}
+        \begin{scope}
+            \clip (3,2.25) circle (0.15);
+            \fill[white] (-3.5,2.25) rectangle (3.5,3.25);  
+        \end{scope}
+    \draw[very thick] (0,0) -- (0,4);
+    \draw[dashed,thick] (0,2.25) -- node[above] {$r$} (3,2.25);
+    \draw[dashed,thick] (0,2.25) -- node[above] {$r$} (-3,2.25);
+    \draw[->] (-0.25,2-1) -- node[above,sloped] {$I$} (-0.25,2.5-1);
+    \draw[cross] (3,2.25) circle (0.15);
+    \draw (-3,2.25) circle (0.15);
+    \draw[fill] (-3,2.25) circle (0.05);
+    \node[above] at (3,2.25+0.15) {$\vec{B}$};
+    \node[above] at (-3,2.25+0.15) {$\vec{B}$};
+    \draw (0.15,2.5) -- (0.15,2.4) -- (0.25,2.4);
+\end{tikzpicture}
+\end{center}
+
+
+\subsection{Camp magnètic d'una espira}
+\label{sub:camp_magnetic_d_una_espira}
+
+El camp magnètic al centre d'una espira de radi $r$ on circula una intensitat
+$I$ és:
+
+\begin{equation}
+    B = \frac{\mu_0I}{2R}
+\end{equation}
+
+
+\begin{center}
+\begin{tikzpicture}[cross/.style={path picture={ 
+  \draw[black]
+(path picture bounding box.south east) -- (path picture bounding box.north west) (path picture bounding box.south west) -- (path picture bounding box.north east);
+}}]
+\draw[very thick] (0,0) circle (2);
+\draw node [above] at (0,2.25) {$I$};
+\draw[-latex] [domain=80:100] plot ({2.25*cos(\x)}, {2.25*sin(\x)});
+
+\draw (0,0) circle (0.25);
+\draw[fill] (0,0) circle (0.05);
+\draw node [above] at (0,0.25) {$\vec{B}$};
+
+\draw[dashed] (0,0) -- node[below] {$R$} (2,0);
+
+\end{tikzpicture}
+\end{center}
+
+El camp magnètic a una distància $z$ del centre de l'anella a través del eix és:
+
+\begin{equation}
+    B = \frac{\mu_0R^2I}{2\left(z^2 + R^2 \right)^\frac{3}{2}}
+\end{equation}
+
+\begin{center}
+\begin{tikzpicture}[cross/.style={path picture={ 
+  \draw[black]
+(path picture bounding box.south east) -- (path picture bounding box.north west) (path picture bounding box.south west) -- (path picture bounding box.north east);
+}}]
+\draw[very thick] (0,0) circle (2);
+\draw node [above] at (0,2.25) {$I$};
+\draw[-latex] [domain=80:100] plot ({2.25*cos(\x)}, {2.25*sin(\x)});
+
+\draw (0,0) circle (0.25);
+\draw[fill] (0,0) circle (0.05);
+\draw node [above] at (0,0.25) {$\vec{B}$};
+
+\draw[dashed] (0,0) -- node[below] {$R$} (2,0);
+
+\draw[|-|,dashed] (3.5,-2) -- node[sloped,above] {$R$} (3.5,0);
+
+\draw[very thick] (4,-2) -- (4,2);
+
+\draw (4,2) circle (0.25);
+\draw[fill] (4,2) circle (0.05);
+\draw node [above] at (4,2.25) {$I$};
+
+\draw[cross] (4,-2) circle (0.25);
+
+\draw[fill] (6,0) circle (0.05);
+
+\draw[dashed] (4,0) -- node[below] {$z$} (6,0);
+\draw[-latex,very thick] (6,0) -- node[above] {$\vec{B}$} (8,0);
+
+\end{tikzpicture}
+\end{center}
+
+\subsection{Camp magnètic d'un solenoide}
+\label{sub:camp_magnetic_d_un_solenoide}
+
+\begin{equation}
+    B = \mu_0nI
+\end{equation}
+\begin{equation}
+    n = \frac{N}{\ell}
+\end{equation}
+
+On $N$ és el nombre d'espires i $\ell$ es la longitud del solenoide.
+
+\begin{center}
+\begin{tikzpicture}[cross/.style={path picture={ 
+  \draw[black]
+(path picture bounding box.south east) -- (path picture bounding box.north west) (path picture bounding box.south west) -- (path picture bounding box.north east);
+}}]
+\draw[very thick, decoration={aspect=0.3, segment length=20, amplitude=40,coil},decorate] (0,0) -- (5,0); 
+%\draw[very thick, decoration={aspect=0.3, segment length=20, amplitude=40,coil},decorate] (0,0) circle (3); 
+\draw[very thick] (0,-2) -- (0,0);
+\draw[-latex] (-0.25,-1.75) -- node[sloped,above] {$I$} (-0.25,-1.25);
+\draw[|-|] (0.25,-2) -- node[below] {$\ell$} (4.75,-2);
+
+\draw[-latex,very thick] (2,0) -- node[above] {$\vec{B}$} (4,0);
+\draw[fill] (2,0) circle (0.05);
+
+\end{tikzpicture}
+\end{center}
+
+\subsection{Camp magnètic d'un toroide}
+\label{sub:camp_magnetic_d_un_toroide}
+
+El camp magnètic al \textbf{interior} d'un toroide de radi $R$ on circula una
+intensitat $I$ i amb $N$ espires es:
+
+\begin{equation}
+    B = \mu_0nI
+\end{equation}
+\begin{equation}
+    n = \frac{N}{2\pi R} \qquad \to \qquad B = \frac{\mu_0NI}{2\pi}
+\end{equation}
+
+\vspace{1cm}
+
+\begin{center}
+\begin{tikzpicture}[cross/.style={path picture={ 
+  \draw[black]
+(path picture bounding box.south east) -- (path picture bounding box.north west) (path picture bounding box.south west) -- (path picture bounding box.north east);
+}}]
+\draw[very thick, decoration={aspect=0.3, segment length=20, amplitude=22,coil},decorate] (0,0) circle (3); 
+\draw[dashed,|-|] (0,0) -- node[above] {$R$}(3,0);
+\draw[line width=3pt,-latex] (-3,0) -- node[above,sloped] {$\vec{B}$} (-3,3);
+\draw[fill] (-3,0) circle (0.10);
+
+\draw[-latex] (3.3,0) -- node[above,sloped] {$I$} (3.4,-0.75);
+
+\end{tikzpicture}
+\end{center}
+
+\pagebreak
+
+\subsection{Flux}
+\label{sub:flux}
+
+El flux magnètic $\Phi$ d'un cos amb un vector superfície $S$ on hi actua un
+camp magnètic $B$ és:
+
+\begin{equation}
+    \Phi = \int \vec{B}  d\vec{S} \qquad \left[ \si{\weber} = \si{\joule\per\ampere} = \si{\volt\second} = \si{\kilo \gram \metre \squared \per \second \squared \per \ampere} \right]
+\end{equation}
+
+Si $\vec{B}$ i $\vec{S}$ són constants i no varia l'angle $\theta$ entre els
+dos en cap punt de la superfície, podem simplificar l'expressió a:
+
+\begin{equation}
+    \Phi = BS\cos\theta
+\end{equation}
+
+\subsection{Llei de Faraday-Lenz (Inducció electromagnètica)}
+\label{sub:llei_de_faraday_lenz_induccio_electromagnetica}
+
+La força electromotriu induïda $\varepsilon$ és igual a la variació de flux $\Phi$ respecte el temps per el nombre d'espires.
+
+\begin{equation}
+    \varepsilon = -N \frac{d\Phi}{dt} \qquad \left[\si{\volt}\right]
+\end{equation}
+
+En un interval de temps discret:
+
+\begin{equation}
+    \varepsilon = -N \frac{\Delta \Phi}{\Delta t}
+\end{equation}
+
+\subsection{Llei de Gauss}
+\label{sub:llei_de_gauss}
+
+El flux en una \textbf{superfície tancada} $S$ és
+
+\begin{equation}
+    \Phi = \oint \vec{B} d\vec{S} = \frac{Q}{\varepsilon_0}
+\end{equation}
+
+\begin{equation}
+    \varepsilon_0 = \SI{8.854187817\dots e-12}{\farad\per\metre} \qquad \text{(Permeabilitat elèctrica del buit)}
+\end{equation}
+
+
+
+
+
+
+
+
+
+
+
+\section{Moviment harmònic simple (MHS)}
+\label{sec:moviment_harm_nic_simple}
+
+\section{Circuits elèctrics}
+\label{sec:circuits_electrics}
+
+\subsection{Resistències}
+\label{sub:resistencies}
+
+La resistència d'un material de longitud $\ell$ àrea $A$ i resistivitat
+elèctrica $\rho$ \footnote{\emph{rho}} [\si{\ohm\metre}] és:
+
+\begin{equation}
+    R = \rho \frac{\ell}{A} \qquad \left[ \si{\ohm} = \si{\kilo\gram\metre\squared\per\second\cubed\per\ampere\squared} \right]
+\end{equation}
+
+\subsection{Intensitat}
+\label{sub:intensitat}
+
+\begin{equation}
+    I = \frac{\Delta Q}{\Delta t} \qquad \left[\si{\ampere}\right]
+\end{equation}
+
+\subsection{Velocitat de deriva}
+\label{sub:velocitat_de_deriva}
+La velocitat $v$ a la que es mou una partícula de càrrega $Q$ a través d'un
+conductor d'àrea $A$ \footnote{secció perpendicular al flux de càrregues} on
+hi ha $n$ partícules per metre cúbic es relaciona amb la intensitat:
+
+\begin{equation}
+    I = nAvQ
+\end{equation}
+
+\subsection{Llei d'Ohm}
+\label{sub:llei_d_ohm}
+
+\begin{equation}
+    V = IR
+\end{equation}
+
+\subsection{Efecte Joule}
+\label{sub:efecte_joule}
+
+La potència dissipada per l'efecte Joule ve determinada per:
+
+\begin{equation}
+    P = RI^2 = VI \qquad \left[ \si{\watt} =\si{\joule\per\second} = \si{\kilo\gram\metre\squared\per\second\cubed}\right]
+\end{equation}
+
+\begin{equation}
+    Q = Pt \qquad \left[\si{\joule} = \si{\newton\per\metre} = \si{\kilo\gram\metre\squared\per\second\squared} \right]
+\end{equation}
+
+
+\subsubsection{En sèrie}
+\label{ssub:en_serie}
+
+
+
+\begin{center}
+    \begin{circuitikz}
+        \draw (0,0) to [resistor,l=$R_1$] (2.5,0) to [resistor,l=$R_2$] (5,0);
+        \draw[dashed] (5,0) to  (6,0);
+        \draw (6,0) to [resistor,l=$R_n$] (8.5,0);
+        \node at (9,0) {$\equiv$};
+        \draw (9.5,0) to [resistor,l=$R_T$] (12,0);
+    \end{circuitikz}
+\end{center}
+
+\begin{equation}\label{eq:resist_series}
+    R_T = \sum_{i=1}^n R_i \qquad I_T = I_i \quad \forall\; i\; \exists \{1,\dots,n\}
+\end{equation}
+
+
+\subsubsection{En paral·lel}
+\label{ssub:en_paral_lel}
+
+\begin{center}
+    \begin{circuitikz}
+        \draw (-0.5,0) -- (0,0);
+        \draw (0,-0.5) to (0,2);
+        \draw[dashed] (0,-0.5) to (0,-1.5);
+        \draw[dashed] (5,-0.5) to (5,-1.5);
+        \draw (0,-1.5) to (0,-2);
+        \draw (5,-1.5) to (5,-2);
+        \draw (5,-0.5) to (5,2);
+        \draw (5.5,0) -- (5,0);
+
+        \draw (0,2) to[resistor,l=$R_1$] (5,2);
+        \draw (0,1) to[resistor,l=$R_2$] (5,1);
+        \draw (0,0) to[resistor,l=$R_3$] (5,0);
+
+        \draw (0,-2) to[resistor,l=$R_n$] (5,-2);
+
+        \node at (6,0) {$\equiv$};
+
+        \draw (7,0) to [resistor,l=$R_T$] (10,0);
+        %\foreach \x in {0,...,5} {
+    \end{circuitikz}
+\end{center}
+
+\begin{equation}\label{eq:resist_paralel}
+    \frac{1}{R_T} = \sum_{i=1}^n \frac{1}{R_i} \qquad I_T = \sum_{i=1}^n I_i
+\end{equation}
+
+\subsection{Condensadors}
+\label{sub:condensadors}
+
+\begin{equation}
+    C = \frac{Q}{\Delta V} \qquad \left[ \si{\coulomb\per\volt} = \si{\farad} \right]
+\end{equation}
+
+\subsubsection{Energia acumulada}
+\label{ssub:energia_acumulada}
+
+\begin{equation}
+    U = \frac{1}{2}QV
+\end{equation}
+
+
+
+\subsubsection{En sèrie}
+\label{ssub:en_serie}
+
+\begin{equation}\label{eq:cond_serie}
+    \frac{1}{C_T} = \sum_{i=1}^n \frac{1}{C_i}
+\end{equation}
+
+\begin{center}
+    \begin{circuitikz}
+        \draw (0,0) to [C,l=$C_1$] (2.5,0) to [C,l=$C_2$] (5,0);
+        \draw[dashed] (5,0) to  (6,0);
+        \draw (6,0) to [C,l=$C_n$] (8.5,0);
+        \node at (9,0) {$\equiv$};
+        \draw (9.5,0) to [C,l=$C_T$] (12,0);
+    \end{circuitikz}
+\end{center}
+
+\subsubsection{En paral·lel}
+\label{ssub:en_paral_lel}
+
+\begin{equation}\label{eq:cond_paralel}
+    C_T = \sum_{i=1}^n C_i
+\end{equation}
+
+\begin{center}
+    \begin{circuitikz}
+        \draw (-0.5,0) -- (0,0);
+        \draw (0,-0.5) to (0,2);
+        \draw[dashed] (0,-0.5) to (0,-1.5);
+        \draw[dashed] (5,-0.5) to (5,-1.5);
+        \draw (0,-1.5) to (0,-2);
+        \draw (5,-1.5) to (5,-2);
+        \draw (5,-0.5) to (5,2);
+        \draw (5.5,0) -- (5,0);
+
+        \draw (0,2) to[C,l=$C_1$] (5,2);
+        \draw (0,0) to[C,l=$C_2$] (5,0);
+
+        \draw (0,-2) to[C,l=$C_n$] (5,-2);
+
+        \node at (6,0) {$\equiv$};
+
+        \draw (7,0) to [C,l=$C_T$] (10,0);
+        %\foreach \x in {0,...,5} {
+    \end{circuitikz}
+\end{center}
+
+\subsection{Teorema de Kirchoff}
+\label{sub:teorema_de_kirchoff}
+
+\subsubsection{Nus}
+\label{ssub:nus}
+
+En un nus com el que es mostra a la figura \ref{fig:nus}, es compleix que\footnote{S'ha de tenir en compte el sentit tant de les intensitats com del voltatge}:
+
+\begin{equation}
+    \sum I = 0
+\end{equation}
+
+\begin{equation}
+    \sum I_\text{entrants} = \sum I_\text{sortints}
+\end{equation}
+
+\begin{figure}[H]
+    \caption{Nus} \label{fig:nus}
+    \begin{center}
+        \begin{circuitikz}
+            \draw (-2,0) to (2,0);
+            \draw (0,-2) to (0,2);
+            \draw[fill] (0,0) circle (0.15);
+            \draw[-latex] (-2,0.25) to node[above] {$I_{1}$} (-0.5,0.25);
+            \draw[-latex] (2,-0.25) to node[below] {$I_{2}$} (0.5,-0.25);
+            \draw[-latex] (0.25,2) to node[right] {$I_{3}$} (0.25,0.5);
+            \draw[-latex] (-0.25,-2) to node[left] {$I_{4}$} (-0.25,-0.5);
+        \end{circuitikz}
+    \end{center}
+\end{figure}
+
+\subsubsection{Malles}
+\label{ssub:malles}
+En una malla com la que es mostra a la figura \ref{fig:malla}, es compleix que:
+\begin{equation}
+    \sum V_i = \sum I_iR_i
+\end{equation}
+
+\begin{figure}[H]
+    \caption{Malla}\label{fig:malla}
+    \begin{center}
+        \begin{circuitikz}
+            \draw (0,0) to[battery,l=$V_1$] (0,4) to[resistor,l=$R_1$] (4,4)
+            to[battery,l=$V_2$] (4,2) to[resistor,l=$R_2$] (4,0) to[resistor,l=$R_3$] (0,0);
+            \draw (4,0) to (8,0) to[resistor,l=$R_4$] (8,4) to (4,4);
+            \draw [<-,line width=2pt] (2,2) ++(138:5mm) --++(60:-1pt) arc (-220:40:5mm);
+            \draw [->,line width=2pt] (6,2) ++(138:5mm) --++(60:-1pt) arc (-220:40:5mm);
+            \draw[-latex] (-0.25,3) -> node[above,sloped] {$I$} (-0.25,4);
+
+            \draw[fill] (4,4) circle (0.05);
+            \draw[fill] (4,0) circle (0.05);
+
+        \end{circuitikz}
+    \end{center}
+\end{figure}
+
+
+
+
+
+
+\section{Òptica}
+\label{sec:optica}
+
+\section{Fluids}
+\label{sec:fluids}
+
+\subsection{Principi de Pascal}
+\label{sub:principi_de_pascal}
+
+\begin{displayquote}
+La pressió exercida per un fluid incompressible en equilibri dins d'un
+recipient de parets rígides es transmet d'igual manera en totes direccions i en
+tots els seus punts.
+\end{displayquote}
+
+La diferència de pressió $\Delta P$ entre dos punts submergits a diferent
+profunditat $h$ és igual a la diferència d'$h$ per la densitat del fluid $\rho$
+per l'acceleració de la gravetat $g$:
+
+\begin{equation}
+    \Delta P = \rho g \Delta h \qquad \left[ \si{\pascal} = \si{\newton \per \metre \squared} = \si{\kilo \gram \per\metre \per\second\squared} \right]
+\end{equation}
+
+\begin{center}
+    \begin{tikzpicture}
+        \draw[blue,very thick,decorate,decoration={coil,aspect=0.1}] (-2,3.75) -- (1.75,3.75);
+        \draw[very thick] (-2,4) -- (-2,0) -- (1.75,0) -- (1.75,4);
+        \node[blue] at (-1.5,3) {$\rho$};
+        \draw (-.25/2,3) circle (0.3) node {$B$};
+        \draw (-0.25/2,1) circle (0.3) node {$A$};
+        \draw[|-|] (0.5,3) -- node[right] {$\Delta h$} (0.5,1);
+    \end{tikzpicture}
+\end{center}
+
+\subsection{Principi d'Arquímedes}
+\label{sub:principi_d_arquimedes}
+
+\begin{displayquote}
+Un cos insoluble totalment o parcialment submergit en un fluid (líquid o gas)
+en repòs rep una força de baix cap a dalt igual al pes del volum del fluid que
+desallotja.
+\end{displayquote}
+
+La força de flotació $\vec{B}$ d'un cos submergit un volum $V$ en un fuid de densitat $\rho$ i sobre el cual hi actua la força de la gravetat $\vec{g}$ és:
+
+\begin{equation}
+    \vec{B} = -\rho V \vec{g}
+\end{equation}
+
+\begin{center}
+    \begin{tikzpicture}
+        \draw[blue,very thick,decorate,decoration={coil,aspect=0.1}] (-2,3.75) -- (1.75,3.75);
+        \draw[very thick] (-2,4) -- (-2,0) -- (1.75,0) -- (1.75,4);
+        \shade[ball color = white] (0,2) circle (0.5) node {$V$};
+        \draw[-latex] (0,2+0.5) -- node[sloped,above] {$\vec{B}$} (0,3);
+        \draw[-latex] (0,2-0.5) -- node[sloped,above] {$\vec{g}$} (0,0.5);
+        \node[blue] at (-1.5,3) {$\rho$};
+    \end{tikzpicture}
+\end{center}
+
+\pagebreak
+
+\subsection{Equació de continuïtat}
+\label{sub:equacio_de_continuitat}
+
+En un mateix fluid, es compleix que la velocitat del fluid en un punt per 
+l'àrea de la secció perpendicular es igual a la velocitat en un altre punt
+per l'àrea en aquell punt.
+
+\begin{equation}
+    A_i v_i = \text{ctt} 
+\end{equation}
+
+\begin{center}
+    \begin{tikzpicture}
+        \draw[fill=blue!25,draw=black] (0,0) ellipse (0.5 and 3);
+        \draw[fill=red!25,draw=black] (5,0) ellipse (0.5*1.5/3 and 1.5);
+
+        \node[below,blue!75] at (0,-3) {$A_1$};
+        \node[below,red!75] at (5,-1.5) {$A_2$};
+
+        \foreach \y in {2.5,2,...,-2.5} {
+            \draw[-latex,blue] (-2,\y) -- (-0.75,\y);
+            \draw[-latex,red,very thick] (5.5,\y*0.5) -- (7,\y*0.5);
+            \draw[-latex,gray!75,thick] (0.75,\y) -- (4.5,\y*0.5);
+        };
+        %\foreach \y in {1.25,1,...,-1.25} {
+            %\draw[-latex,red,very thick] (5.5,\y) -- (7,\y);
+        %};
+
+        \draw (0,3) -- (5,1.5);
+        \draw (0,-3) -- (5,-1.5);
+        \draw (5,1.5) -- (7,1.5);
+        \draw (5,-1.5) -- (7,-1.5);
+        \draw (0,3) -- (-2,3);
+        \draw (0,-3) -- (-2,-3);
+    \end{tikzpicture}
+\end{center}
+
+\subsection{Equació de Bernoulli}
+\label{sub:equaci_de_bernoulli}
+
+\begin{align}
+    P_T &= P_s + P_d\\
+    P_d &= \frac{1}{2}\rho v^2\\
+    P_s &= \rho g h
+\end{align}
+
+\subsection{Nombre de Reynolds}
+\label{sub:nombre_de_reynolds}
+
+El nombre de Reynolds  Re caracteritza el moviment del fluid. En un tub, si
+$\mathrm{Re} > 4000$ el règim és turbulent, si $\mathrm{Re} < 2300$ el règim és laminar.\\
+
+El nombre de Reynolds Re per a un líquid de densitat $\rho$ i viscositat cinètica $\mu$ que circula a una velocitat $v$ per un tub de diàmetre $D_H$ és:
+
+\begin{equation}
+    \mathrm{Re} = {{\rho v D_H} \over {\mu}} 
+\end{equation}
+
+\section{Termodinàmica}
+\label{sec:termodinamica}
+
+\begin{align}
+PV &= nRT \\
+u &= \frac{3}{2}nRT\ u \alpha T \\
+Q &= c_em\Delta T
+\end{align}
+
+\subsection{1r principi}
+\label{sub:1r_principi}
+
+La calor $Q\;[\si{\joule}]$ despresa durant la variació de les condicions d'un
+gas és la suma del treball $W$ i la variació d'energia interna del gas durant
+el procés:
+
+\begin{align}
+Q &= W + \Delta U \\
+W &= \int P dV
+\end{align}
+
+\subsection{Isobàric}
+\label{sub:isobaric}
+El procés es produeix a \textbf{pressió} constant.
+
+\begin{align}
+Q = P \Delta V + \Delta U
+\end{align}
+
+\subsection{Isotèrmic}
+\label{sub:isotermic}
+El procés es produeix a \textbf{temperatura} constant.
+
+\begin{align}
+\Delta U &= 0\\
+Q = W &= nRT\ln\frac{V_B}{V_A}
+\end{align}
+
+\subsection{Isocor}
+\label{sub:isocor}
+El procés es produeix a \textbf{volum} constant.
+
+\begin{align}
+W &= 0\\
+Q &= \Delta U
+\end{align}
+
+\pagebreak
+
+\subsection{Adiabàtic}
+\label{sub:adiabatic}
+O isentròpic, el procés es produeix sense intercanvi de calor ($Q=0$).
+
+\begin{align}
+Q &= 0\nonumber\\
+W &= -\Delta U \\
+P*V^\gamma &= ctt \\
+\frac{T}{V^{\gamma + 1}} &= ctt \\
+\gamma &= \frac{2}{3} \nonumber
+\end{align}
+
+\subsection{Eficiència}
+\label{sub:eficiencia}
+
+\begin{equation}
+\eta = \frac{W}{Q}
+\end{equation}
+
+\subsection{Segon principi}
+\label{sub:segon_principi}
+
+L'entropia $S$ d'un sistema es igual a la variació de calor $\Delta Q$ entre la
+temperatura. L'entropia de l'univers sempre augmenta.
+
+\begin{align}
+S &= \frac{\Delta Q}{T} \\
+S &= k_b \ln \Omega \\
+S_\text{univers} &> 0
+\end{align}
+
+$\Omega$ és el nombre de microestats possibles per al sistema.
+
+\begin{equation}
+    k_b =  \SI{1.38064852(79)e-23}{\joule\per\kelvin} \qquad \text{(Constant de Boltzmann)}
+\end{equation}
+
+
+
+
+
+
+
+
+
+\end{document}
