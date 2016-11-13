@@ -7,6 +7,10 @@
 \let\oldsection\section
 \renewcommand\section{\clearpage\oldsection}
 
+\newcommand{\ihat}{\hat{\imath}}
+\newcommand{\jhat}{\hat{\jmath}}
+\newcommand{\khat}{\hat{k}}
+
 \begin{document}
 
 \title {Física NS}\author {Aleix Boné}\date {\today}\maketitle
@@ -58,7 +62,7 @@
     \vec{r} &= X(t)i & + Y(t)j \notag \\
     & MRU &  MRUA \notag \\
     & \downarrow  & \downarrow \notag \\
-    \vec{r} &= (x_0+v_0*\cos(\theta)) \imath & + (y_0 + v_0*\sin(\theta)*t - \frac{1}{2}gt^2) \jmath
+    \vec{r} &= (x_0+v_0*\cos(\theta)) \ihat & + (y_0 + v_0*\sin(\theta)*t - \frac{1}{2}gt^2) \jmath
 \end{align}
 
 Inclinació en un punt P:
@@ -82,16 +86,195 @@ Inclinació en un punt P:
 \section{Dinàmica}
 \label{sec:dinamica}
 
+\subsection{Lleis de Newton}
+\subsubsection{1a llei (inèrcia)}
+\begin{center}
+Si $\sum \vec{F} = 0 \Rightarrow$ objecte en MRU o repòs.
+\end{center}
+
+\subsubsection{2a llei (fonamental)}
+\begin{align}
+\sum \vec{F}\ &\alpha\ \vec{a} \notag \\
+\downarrow & \notag \\
+\vec{F} &= m * \vec{a} \\ 
+\notag \\
+m &= \text{massa} \notag \\
+\text{(resistència }&\text{al moviment) }\notag \\
+\end{align}
+
+\subsubsection{3a llei (acció-reacció)}
+\begin{align*}
+\vec{F}_{a \rightarrow b} &= -\vec{F}_{b \rightarrow a} \\
+|F_{a \rightarrow b}| &= |F_{b \rightarrow a}|
+\end{align*}
+
+\subsection{Força de fricció}
+
+\begin{equation}
+\vec{F}_r = \mu * N
+\end{equation}
+Hi ha dos tipus de coeficients de fricció ($\mu$):
+\begin{itemize}
+\item $\mu _e = $ coeficient de fricció estàtic (quan el cos està en repòs)
+\item $\mu _d = $ coeficient de fricció dinàmic (quan el cos està en moviment)
+\end{itemize}
+La fricció sempre va en sentit contrari al moviment.
+
+
+\subsection{La màquina d'Atwood}
+Una politja d'on hi pengen dues masses. Si $m_1 > m_2$:
+\begin{equation}
+a = g\frac{m_1-m_2}{m_1+m_2}
+\end{equation} 
+
 \section{Treball i energia}
-\label{sec:treball_i_energia}
 
-\section{Impuls}
-\label{sec:impuls}
+\begin{align}
+W &= \vec{F}*\Delta \vec{r} = F * \Delta r * cos\theta \\
+W &= \int \vec{F}dx \\
+W &= \Delta E_c \text{ (teorema treball-energia)} \\
+W &= \tau \theta
+\end{align}
 
-\subsection{Xocs}
-\label{sub:xocs}
+\subsection{Forces Conservatives}
+$\vec{F}$ és conservativa si:
+\begin{align*}
+\oint \vec{F}d\vec{r} &= 0 \\
+&\text{ó} \\
+\int \vec{F}d\vec{r} &= ctt
+\end{align*}
+
+\begin{center}
+(es conservativa si el treball d'un punt a un altre es constant independentment del camí)
+\end{center}
+
+\begin{align}
+W_{NC} &= \Delta E_M \\
+E_M &= E_P + E_c
+\end{align}
+
+\subsection{Conservació de l'energia}
+Si l'una força $\vec{F}$ es conservativa, té associada una energia potencial $U$:
+\begin{equation}
+U = - \int \vec{F} dx 
+\end{equation}
+\subsection{Potència}
+\begin{equation}
+P = \frac{\Delta E}{\Delta t}
+\end{equation}
+\begin{equation}
+[P] = \frac{J}{s} = w\ (\text{watt})
+\end{equation}
+
+\section{Xocs}
+Hi ha dos tipus de xocs, els elàstics i els inelàstics:
+
+\subsection{Impuls}
+\begin{equation}
+\vec{I} = \vec{F}\Delta t = m \vec{a} \Delta t = m \Delta \vec{v} = \Delta \vec{p}
+\end{equation}
+
+\begin{equation}
+\frac{d\vec{p}}{dt} = \vec{F}
+\end{equation}
+
+\subsection{Inelàstics}
+Son xocs irreals en el que es conserva l'energia:
+\begin{align}
+\Delta E &= 0 \\
+\Delta \vec{p} &= 0
+\end{align}
 
 
+
+\subsection{Elàstics}
+Son xocs en els que no es conserva l'energia degut a la pèrdua d'energia en forma de calor, soroll, deformació del material...
+\begin{align}
+\Delta E &\neq 0 \qquad \rightarrow E_f = E_i - E_\text{perduda}\\
+\Delta \vec{p} &= 0
+\end{align}
+
+\subsection{Coeficient de restitució}
+Modela la pèrdua d'energia en un xoc inelàstic:
+\begin{equation}
+E_\text{perduda} = \frac{v_{f1}-v_{f2}}{v_{i1}-v_{i2}}
+\end{equation}
+
+\section{Dinàmica de rotació}
+\subsection{Moment}
+Si tenim una força $\vec{F}$ que actua sobre un cos a una distància del centre de masses definida pel vector $\vec{r}$, el moment que genera aquesta força es:
+\begin{equation}
+\vec{\tau} = \vec{r} \times \vec{F}
+\end{equation}
+On $\times$ es el producte vectorial i per tant:
+\begin{equation}
+\vec{\tau} \perp \vec{r}\ \&\ \vec{F}
+\end{equation}
+
+\begin{center}
+    \begin{tikzpicture}
+        \draw (0,0) circle (2);
+        \draw[fill=white] (1.4142,1.4142) circle (0.2);
+        \draw[fill=black] (1.4142,1.4142) circle (0.05);
+        \draw[-latex,thick] (0,0) -- node[above] {$\vec{r}$} (1.27279220614,1.27279220614);
+        \draw[-latex,thick] (1.4142,1.6142) -- node[left] {$\vec{F}$} (1.4142,3);
+        \draw[dashed,gray!75] (1.55563491861,1.55563491861) -- (3,3);
+
+        \draw[-latex] [domain=45:90] plot ({1*cos(\x)+1.4142}, {1*sin(\x)+1.4142}) ;
+        \node[above] at (1.9,2.4) {$\theta$};
+        \node[above] at (1.85,1.15) {$\vec{\tau}$};
+    \end{tikzpicture}
+\end{center}
+
+
+Utilitzarem el símbol $\odot$ per denotar que $\vec{\tau}$ va \emph{cap a fora} i el símbol $\times$ per denotar que va \emph{cap a dins}
+\begin{align}
+|\vec{\tau}| &= |\vec{r}||\vec{F}|\sin \theta \\
+&= m\vec{a}\vec{r} = m r^2 \alpha \quad \text{si $\theta = \pi$}\\
+|\vec{\tau}_\text{total}| &= \alpha \sum m_i r_i^2 = I\alpha
+\end{align}
+
+\paragraph{Moment d'inèrcia}
+\begin{align}
+I &\equiv \sum m_i r_i^2 \\
+I &= \int r^2 dm
+\end{align}
+Per a un cilindre massís:
+\begin{equation}
+I = \frac{1}{2}mr^2
+\end{equation}
+
+\subsection{Energia de rotació}
+\begin{equation}
+E_r = \frac{1}{2}\omega^2I
+\end{equation}
+En general, l'energia cinètica es:
+\begin{equation}
+E_c = E_{c1} + E_r = \frac{1}{2} m v^2 + \frac{1}{2}I\omega^2
+\end{equation}
+
+\subsection{Rodament amb desplaçament}
+Si una esfera roda es compleix que:
+\begin{equation}
+v_{cm} = \omega R
+\end{equation}
+Si $v_{cm} > \omega R$, l'esfera llisca.
+
+\subsection{Moment angular(L)}
+\begin{equation}
+\vec{L} = \vec{r} \times \vec{p}
+\end{equation}
+
+\begin{align}
+\vec{L} &= I \vec{\omega} \\
+\frac{d\vec{L}}{dt} &= \vec{\tau}
+\end{align}
+
+\subsubsection{Teorema de Steiner}
+El moment d'inèrcia d'un eix desplaçat $d$ unitats del centre de masses es:
+\begin{equation}
+I_d = I_{cm} + m d^2
+\end{equation}
 
 \section{Camp gravitatori}
 \label{sec:camp_gravitatori}
@@ -167,7 +350,7 @@ Inclinació en un punt P:
     \subsubsection{Energia mecànica}
     \label{ssub:energia_mecanica}
     \begin{equation}
-        E_m = -\frac{1}{2} G \frac{Mm}{r}
+        E_m = E_c + E_p = -\frac{1}{2} G \frac{Mm}{r}
     \end{equation}
 \end{multicols}
 
@@ -263,47 +446,47 @@ Inclinació en un punt P:
 \label{sub:camp_electric_duna_carrega}
 
 \begin{multicols}{2}
-    
 
-El camp elèctric $\vec{E}$ d'una càrrega $Q$ a una distància $r$ de $Q$ ve determinat per:
-\begin{equation}
-    \vec{E} = k\frac{Q}{r^2} \hat{u}_r
-\end{equation}
 
-\columnbreak
+    El camp elèctric $\vec{E}$ d'una càrrega $Q$ a una distància $r$ de $Q$ ve determinat per:
+    \begin{equation}
+        \vec{E} = k\frac{Q}{r^2} \hat{u}_r
+    \end{equation}
 
-En general, el camp elèctric a un punt $P$ ve determinat per la suma vectorial
-dels camps elèctrics de totes les càrregues:
-\begin{equation}
-    \vec{E}_P = \sum_{i=1}^n \vec{E}_i 
-\end{equation}
+    \columnbreak
+
+    En general, el camp elèctric a un punt $P$ ve determinat per la suma vectorial
+    dels camps elèctrics de totes les càrregues:
+    \begin{equation}
+        \vec{E}_P = \sum_{i=1}^n \vec{E}_i 
+    \end{equation}
 
 
 \end{multicols}
 
-    
+
 
 \subsection{Energia electrostàtica}
 \begin{multicols}{2}
 
-\label{sub:energia_electrostatica}
-L'energia electrostàtica d'un sistema amb dues càrregues $q$ i $Q$ separades $r$ és:
-\begin{equation}
-    U = k \frac{qQ}{r}
-\end{equation}
+    \label{sub:energia_electrostatica}
+    L'energia electrostàtica d'un sistema amb dues càrregues $q$ i $Q$ separades $r$ és:
+    \begin{equation}
+        U = k \frac{qQ}{r}
+    \end{equation}
 
-En general, l'energia electrostàtica d'un sistema amb $n$ càrregues és la suma
-de l'energia electrostàtica entre totes les càrregues:
+    En general, l'energia electrostàtica d'un sistema amb $n$ càrregues és la suma
+    de l'energia electrostàtica entre totes les càrregues:
 
-\begin{equation}
-    U_T = \mathlarger{\sum_{i=1}^n} \sum_{j=1}^n U_{ji}
-\end{equation}
+    \begin{equation}
+        U_T = \mathlarger{\sum_{i=1}^n} \sum_{j=1}^n U_{ji}
+    \end{equation}
 
-El treball es igual a menys la variació d'energia electrostàtica:
+    El treball es igual a menys la variació d'energia electrostàtica:
 
-\begin{equation}
-    W = - \Delta U
-\end{equation}
+    \begin{equation}
+        W = - \Delta U
+    \end{equation}
 
 \end{multicols}
 
@@ -312,16 +495,16 @@ El treball es igual a menys la variació d'energia electrostàtica:
 
 \begin{multicols}{2}
 
-\begin{equation}
-    V = \frac{U}{q} = k \frac{Q}{r} \qquad \left[\si{\volt} = \si{\kilo\gram\metre\squared\per\second\cubed\per\ampere} \right]
-\end{equation}
+    \begin{equation}
+        V = \frac{U}{q} = k \frac{Q}{r} \qquad \left[\si{\volt} = \si{\kilo\gram\metre\squared\per\second\cubed\per\ampere} \right]
+    \end{equation}
 
-\subsubsection{Relació entre E i V}
-\label{ssub:relaci_entre_e_i_v}
+    \subsubsection{Relació entre E i V}
+    \label{ssub:relaci_entre_e_i_v}
 
-\begin{equation}
-    \vec{E} = - \vec{\nabla} V = - \frac{dV}{dr} \hat{u}_r
-\end{equation}
+    \begin{equation}
+        \vec{E} = - \vec{\nabla} V = - \frac{dV}{dr} \hat{u}_r
+    \end{equation}
 
 
 \end{multicols}
@@ -365,8 +548,8 @@ La força electromaètica induïda sobre una càrrega $q$ que travessa un camp m
 
         \draw [fill] (0,0) circle (0.05);
         \draw [thick] (0,0) circle (0.15);
-        \node[below left] (0,0) at (0,0) {$\hat{k}$};
-        \draw[<->,thick] (0.5,0) -- node[below right] {$\hat{\jmath}$} (0,0) -- node[above left] {$\hat{\imath}$} (0,0.5);
+        \node[below left] (0,0) at (0,0) {$\khat$};
+        \draw[<->,thick] (0.5,0) -- node[below right] {$\jhat$} (0,0) -- node[above left] {$\ihat$} (0,0.5);
 
     \end{tikzpicture}
 \end{figure}
@@ -391,18 +574,18 @@ el creen.
 
 
 \begin{center}
-\begin{tikzpicture}[cross/.style={path picture={ 
-  \draw[black]
-(path picture bounding box.south east) -- (path picture bounding box.north west) (path picture bounding box.south west) -- (path picture bounding box.north east);
-}}]
-    \draw[thick] (0,0) -- (0,4);
-    \draw[very thick,|-|] (0,2) -- node[above,sloped] {$d\vec{\ell}$}(0,2.5);
-    %\draw[dashed] (0,2.25) -- (3,2.25);
-    \draw[thick,->] (0,2.25) -- node[above] {$r\vec{u}_r$} (3,2.25);
-    \draw[->] (-0.25,0.5) -- node[above,sloped] {$I$} (-0.25,1);
-    \draw[cross] (3+0.15,2.25) circle (0.15);
-    \node[above] at (3+0.15,2.25+0.15) {$d\vec{B}$};
-\end{tikzpicture}
+    \begin{tikzpicture}[cross/.style={path picture={ 
+                \draw[black]
+                (path picture bounding box.south east) -- (path picture bounding box.north west) (path picture bounding box.south west) -- (path picture bounding box.north east);
+            }}]
+        \draw[thick] (0,0) -- (0,4);
+        \draw[very thick,|-|] (0,2) -- node[above,sloped] {$d\vec{\ell}$}(0,2.5);
+        %\draw[dashed] (0,2.25) -- (3,2.25);
+        \draw[thick,->] (0,2.25) -- node[above] {$r\vec{u}_r$} (3,2.25);
+        \draw[->] (-0.25,0.5) -- node[above,sloped] {$I$} (-0.25,1);
+        \draw[cross] (3+0.15,2.25) circle (0.15);
+        \node[above] at (3+0.15,2.25+0.15) {$d\vec{B}$};
+    \end{tikzpicture}
 \end{center}
 
 \subsection{Camp magnètic d'un cable recte i infinit}
@@ -412,11 +595,11 @@ el creen.
     B = \frac{\mu_0I}{2\pi r}
 \end{equation}
 \begin{center}
-\begin{tikzpicture}[cross/.style={path picture={ 
-  \draw[black]
-(path picture bounding box.south east) -- (path picture bounding box.north west) (path picture bounding box.south west) -- (path picture bounding box.north east);
-}}]
-    \draw[gray!75,dashed] (0,2.25) ellipse(3 and 0.5);
+    \begin{tikzpicture}[cross/.style={path picture={ 
+                \draw[black]
+                (path picture bounding box.south east) -- (path picture bounding box.north west) (path picture bounding box.south west) -- (path picture bounding box.north east);
+            }}]
+        \draw[gray!75,dashed] (0,2.25) ellipse(3 and 0.5);
         \begin{scope}
             \clip (-3,2.25) circle (0.15);
             \fill[white] (-3.5,2.25) rectangle (3.5,3.25);  
@@ -425,17 +608,17 @@ el creen.
             \clip (3,2.25) circle (0.15);
             \fill[white] (-3.5,2.25) rectangle (3.5,3.25);  
         \end{scope}
-    \draw[very thick] (0,0) -- (0,4);
-    \draw[dashed,thick] (0,2.25) -- node[above] {$r$} (3,2.25);
-    \draw[dashed,thick] (0,2.25) -- node[above] {$r$} (-3,2.25);
-    \draw[->] (-0.25,2-1) -- node[above,sloped] {$I$} (-0.25,2.5-1);
-    \draw[cross] (3,2.25) circle (0.15);
-    \draw (-3,2.25) circle (0.15);
-    \draw[fill] (-3,2.25) circle (0.05);
-    \node[above] at (3,2.25+0.15) {$\vec{B}$};
-    \node[above] at (-3,2.25+0.15) {$\vec{B}$};
-    \draw (0.15,2.5) -- (0.15,2.4) -- (0.25,2.4);
-\end{tikzpicture}
+        \draw[very thick] (0,0) -- (0,4);
+        \draw[dashed,thick] (0,2.25) -- node[above] {$r$} (3,2.25);
+        \draw[dashed,thick] (0,2.25) -- node[above] {$r$} (-3,2.25);
+        \draw[->] (-0.25,2-1) -- node[above,sloped] {$I$} (-0.25,2.5-1);
+        \draw[cross] (3,2.25) circle (0.15);
+        \draw (-3,2.25) circle (0.15);
+        \draw[fill] (-3,2.25) circle (0.05);
+        \node[above] at (3,2.25+0.15) {$\vec{B}$};
+        \node[above] at (-3,2.25+0.15) {$\vec{B}$};
+        \draw (0.15,2.5) -- (0.15,2.4) -- (0.25,2.4);
+    \end{tikzpicture}
 \end{center}
 
 
@@ -451,21 +634,21 @@ $I$ és:
 
 
 \begin{center}
-\begin{tikzpicture}[cross/.style={path picture={ 
-  \draw[black]
-(path picture bounding box.south east) -- (path picture bounding box.north west) (path picture bounding box.south west) -- (path picture bounding box.north east);
-}}]
-\draw[very thick] (0,0) circle (2);
-\draw node [above] at (0,2.25) {$I$};
-\draw[-latex] [domain=80:100] plot ({2.25*cos(\x)}, {2.25*sin(\x)});
+    \begin{tikzpicture}[cross/.style={path picture={ 
+                \draw[black]
+                (path picture bounding box.south east) -- (path picture bounding box.north west) (path picture bounding box.south west) -- (path picture bounding box.north east);
+            }}]
+        \draw[very thick] (0,0) circle (2);
+        \draw node [above] at (0,2.25) {$I$};
+        \draw[-latex] [domain=80:100] plot ({2.25*cos(\x)}, {2.25*sin(\x)});
 
-\draw (0,0) circle (0.25);
-\draw[fill] (0,0) circle (0.05);
-\draw node [above] at (0,0.25) {$\vec{B}$};
+        \draw (0,0) circle (0.25);
+        \draw[fill] (0,0) circle (0.05);
+        \draw node [above] at (0,0.25) {$\vec{B}$};
 
-\draw[dashed] (0,0) -- node[below] {$R$} (2,0);
+        \draw[dashed] (0,0) -- node[below] {$R$} (2,0);
 
-\end{tikzpicture}
+    \end{tikzpicture}
 \end{center}
 
 El camp magnètic a una distància $z$ del centre de l'anella a través del eix és:
@@ -475,36 +658,36 @@ El camp magnètic a una distància $z$ del centre de l'anella a través del eix 
 \end{equation}
 
 \begin{center}
-\begin{tikzpicture}[cross/.style={path picture={ 
-  \draw[black]
-(path picture bounding box.south east) -- (path picture bounding box.north west) (path picture bounding box.south west) -- (path picture bounding box.north east);
-}}]
-\draw[very thick] (0,0) circle (2);
-\draw node [above] at (0,2.25) {$I$};
-\draw[-latex] [domain=80:100] plot ({2.25*cos(\x)}, {2.25*sin(\x)});
+    \begin{tikzpicture}[cross/.style={path picture={ 
+                \draw[black]
+                (path picture bounding box.south east) -- (path picture bounding box.north west) (path picture bounding box.south west) -- (path picture bounding box.north east);
+            }}]
+        \draw[very thick] (0,0) circle (2);
+        \draw node [above] at (0,2.25) {$I$};
+        \draw[-latex] [domain=80:100] plot ({2.25*cos(\x)}, {2.25*sin(\x)});
 
-\draw (0,0) circle (0.25);
-\draw[fill] (0,0) circle (0.05);
-\draw node [above] at (0,0.25) {$\vec{B}$};
+        \draw (0,0) circle (0.25);
+        \draw[fill] (0,0) circle (0.05);
+        \draw node [above] at (0,0.25) {$\vec{B}$};
 
-\draw[dashed] (0,0) -- node[below] {$R$} (2,0);
+        \draw[dashed] (0,0) -- node[below] {$R$} (2,0);
 
-\draw[|-|,dashed] (3.5,-2) -- node[sloped,above] {$R$} (3.5,0);
+        \draw[|-|,dashed] (3.5,-2) -- node[sloped,above] {$R$} (3.5,0);
 
-\draw[very thick] (4,-2) -- (4,2);
+        \draw[very thick] (4,-2) -- (4,2);
 
-\draw (4,2) circle (0.25);
-\draw[fill] (4,2) circle (0.05);
-\draw node [above] at (4,2.25) {$I$};
+        \draw (4,2) circle (0.25);
+        \draw[fill] (4,2) circle (0.05);
+        \draw node [above] at (4,2.25) {$I$};
 
-\draw[cross] (4,-2) circle (0.25);
+        \draw[cross] (4,-2) circle (0.25);
 
-\draw[fill] (6,0) circle (0.05);
+        \draw[fill] (6,0) circle (0.05);
 
-\draw[dashed] (4,0) -- node[below] {$z$} (6,0);
-\draw[-latex,very thick] (6,0) -- node[above] {$\vec{B}$} (8,0);
+        \draw[dashed] (4,0) -- node[below] {$z$} (6,0);
+        \draw[-latex,very thick] (6,0) -- node[above] {$\vec{B}$} (8,0);
 
-\end{tikzpicture}
+    \end{tikzpicture}
 \end{center}
 
 \subsection{Camp magnètic d'un solenoide}
@@ -520,20 +703,20 @@ El camp magnètic a una distància $z$ del centre de l'anella a través del eix 
 On $N$ és el nombre d'espires i $\ell$ es la longitud del solenoide.
 
 \begin{center}
-\begin{tikzpicture}[cross/.style={path picture={ 
-  \draw[black]
-(path picture bounding box.south east) -- (path picture bounding box.north west) (path picture bounding box.south west) -- (path picture bounding box.north east);
-}}]
-\draw[very thick, decoration={aspect=0.3, segment length=20, amplitude=40,coil},decorate] (0,0) -- (5,0); 
-%\draw[very thick, decoration={aspect=0.3, segment length=20, amplitude=40,coil},decorate] (0,0) circle (3); 
-\draw[very thick] (0,-2) -- (0,0);
-\draw[-latex] (-0.25,-1.75) -- node[sloped,above] {$I$} (-0.25,-1.25);
-\draw[|-|] (0.25,-2) -- node[below] {$\ell$} (4.75,-2);
+    \begin{tikzpicture}[cross/.style={path picture={ 
+                \draw[black]
+                (path picture bounding box.south east) -- (path picture bounding box.north west) (path picture bounding box.south west) -- (path picture bounding box.north east);
+            }}]
+        \draw[very thick, decoration={aspect=0.3, segment length=20, amplitude=40,coil},decorate] (0,0) -- (5,0); 
+        %\draw[very thick, decoration={aspect=0.3, segment length=20, amplitude=40,coil},decorate] (0,0) circle (3); 
+        \draw[very thick] (0,-2) -- (0,0);
+        \draw[-latex] (-0.25,-1.75) -- node[sloped,above] {$I$} (-0.25,-1.25);
+        \draw[|-|] (0.25,-2) -- node[below] {$\ell$} (4.75,-2);
 
-\draw[-latex,very thick] (2,0) -- node[above] {$\vec{B}$} (4,0);
-\draw[fill] (2,0) circle (0.05);
+        \draw[-latex,very thick] (2,0) -- node[above] {$\vec{B}$} (4,0);
+        \draw[fill] (2,0) circle (0.05);
 
-\end{tikzpicture}
+    \end{tikzpicture}
 \end{center}
 
 \subsection{Camp magnètic d'un toroide}
@@ -552,18 +735,18 @@ intensitat $I$ i amb $N$ espires es:
 \vspace{1cm}
 
 \begin{center}
-\begin{tikzpicture}[cross/.style={path picture={ 
-  \draw[black]
-(path picture bounding box.south east) -- (path picture bounding box.north west) (path picture bounding box.south west) -- (path picture bounding box.north east);
-}}]
-\draw[very thick, decoration={aspect=0.3, segment length=20, amplitude=22,coil},decorate] (0,0) circle (3); 
-\draw[dashed,|-|] (0,0) -- node[above] {$R$}(3,0);
-\draw[line width=3pt,-latex] (-3,0) -- node[above,sloped] {$\vec{B}$} (-3,3);
-\draw[fill] (-3,0) circle (0.10);
+    \begin{tikzpicture}[cross/.style={path picture={ 
+                \draw[black]
+                (path picture bounding box.south east) -- (path picture bounding box.north west) (path picture bounding box.south west) -- (path picture bounding box.north east);
+            }}]
+        \draw[very thick, decoration={aspect=0.3, segment length=20, amplitude=22,coil},decorate] (0,0) circle (3); 
+        \draw[dashed,|-|] (0,0) -- node[above] {$R$}(3,0);
+        \draw[line width=3pt,-latex] (-3,0) -- node[above,sloped] {$\vec{B}$} (-3,3);
+        \draw[fill] (-3,0) circle (0.10);
 
-\draw[-latex] (3.3,0) -- node[above,sloped] {$I$} (3.4,-0.75);
+        \draw[-latex] (3.3,0) -- node[above,sloped] {$I$} (3.4,-0.75);
 
-\end{tikzpicture}
+    \end{tikzpicture}
 \end{center}
 
 \pagebreak
@@ -625,6 +808,70 @@ El flux en una \textbf{superfície tancada} $S$ és
 
 \section{Moviment harmònic simple (MHS)}
 \label{sec:moviment_harm_nic_simple}
+
+Un cos segueix un moviment harmònic simple si es compleix que:
+\begin{enumerate}
+    \item La magnitud de la força (i com a conseqüent de l'acceleració)
+        és proporcional al desplaçament respecte a un punt fix.
+    \item La direcció de la força (i per tant de l'acceleració) és sempre en la
+        direcció del punt fix.
+\end{enumerate}
+Per tant:
+\begin{align}
+    a &\propto -\Delta x\\
+    a &= -k\Delta x
+\end{align}
+
+Les equacions de moviment per a un objecte que es mou seguint un moviment harmònic simple d'amplitud $A$, freqüència angular $\omega$ i fase $\phi$ amb un punt fix $x_0$són:
+
+\begin{align}
+    x(t) &= x_0 + A\sin(\phi_0+\omega t) \\
+    v(t) &= A\omega\cos(\phi_0+\omega t) \\
+    a(t) &= -A\omega^2\cos(\phi_0+\omega t)
+\end{align}
+
+El període $T$, el període angular $\omega$ i la freqüència $f$ segueixen la
+relació:
+
+\begin{align}
+    T = \frac{1}{f} = \frac{2\pi}{\omega}
+\end{align}
+
+\subsection{Posició, velocitat i acceleració màximes}
+\label{sub:posicio_velocitat_i_acceleracio_maximes}
+
+
+\begin{align}
+    x_\mathrm{màx} &= x_0 + A \\
+    v_\mathrm{màx} &= A\omega \\
+    a_\mathrm{màx} &= A\omega^2
+\end{align}
+
+\subsection{Llei de Hooke}
+\label{sub:llei_de_hooke}
+
+La força exercida per una molla amb una constant elàstica $k$ segueix un
+moviment harmònic simple.
+
+\begin{equation}
+    F = -k\Delta x
+\end{equation}
+
+\begin{equation}
+    E_p = \frac{1}{2}k\Delta x
+\end{equation}
+
+\subsection{Període d'un pèndul simple}
+\label{sub:periode_d_un_pendul_simple}
+
+El període $T$ d'un pèndul simple de longitud $\ell$ que oscil·la en graus petits \footnote{Inferiors a \SI{15}{\degree}} és:
+
+\begin{equation}
+    T=2\pi\sqrt{\frac{\ell}{g}}
+\end{equation}
+
+
+
 
 \section{Circuits elèctrics}
 \label{sec:circuits_electrics}
@@ -855,6 +1102,70 @@ En una malla com la que es mostra a la figura \ref{fig:malla}, es compleix que:
 \section{Òptica}
 \label{sec:optica}
 
+\subsection{Índex de refracció entre dos medis}
+\label{sub:index_de_refraccio_entre_dos_medis}
+
+L'índex de refracció entre dos medis és igual a la velocitat de la llum en el
+primer medi entre la velocitat de la llum en el segon medi:
+
+\begin{equation}
+_1n_2 = \frac{v_1}{v_2}
+\end{equation}
+
+\subsection{Índex de refracció absolut}
+\label{sub:index_de_refraccio_absolut}
+
+L'índex de refracció absolut $n$ d'un medi és la relació entre la velocitat de
+la llum en el buit $c$ i la velocitat de la llum en el medi $v$:
+
+\begin{equation}
+    n = \frac{c}{v}
+\end{equation}
+
+\begin{equation}
+    c = \SI{299792458}{\metre \per \second} \approx \SI{3e9}{\metre\per\second}
+\end{equation}
+
+\subsection{Llei de Snell}
+L'angle d'incidència $\ihat$ per l'índex de refracció absolut del primer medi
+és igual a l'angle de refracció $\hat{r}$ per l'índex absolut del segon medi.
+\begin{equation}
+n_1 \sin \ihat = n_2 \sin \hat{r}
+\end{equation}
+
+\begin{center}
+    
+    \begin{tikzpicture}
+        \shade[top color = gray!50, bottom color = white] (-3,0) rectangle (3,-3);
+        \draw[very thick] (-3,0) -- (3,0);
+        \draw [domain=90:150] plot ({1*cos(\x)}, {1*sin(\x)});
+        \draw [domain=90:30] plot ({1.5*cos(\x)}, {1.5*sin(\x)});
+        \draw [domain=270:290] plot ({1.5*cos(\x)}, {1.5*sin(\x)});
+        \draw[dashed] (0,3) -- (0,-3);
+        \draw[very thick,-latex,blue] (-3,1.73205080757) -- (0,0);
+        \draw[thick,-latex,blue!75] (0,0) -- (1.0919107028,-3);
+        \draw[-latex,blue!25] (0,0) -- (3,1.73205080757);
+
+        \node[above] at (-2.75,0) {$n_1$};
+        \node[below] at (-2.75,0) {$n_2$};
+
+        \node[above] at (-0.75,1) {$\ihat$};
+        \node[above] at (0.9,1.35) {$\ihat$};
+        \node[below] at (0.25,-1.45) {$\hat{r}$};
+    \end{tikzpicture}
+\end{center}
+
+\subsection{lleis dels miralls}
+\begin{equation}
+\frac{1}{s} + \frac{1}{s'} = \frac{2}{r}
+\end{equation}
+
+\subsection{lleis de la lent}
+\begin{equation}
+\frac{1}{s} + \frac{1}{s'} = \frac{1}{f}
+\end{equation}
+
+
 \section{Fluids}
 \label{sec:fluids}
 
@@ -862,9 +1173,9 @@ En una malla com la que es mostra a la figura \ref{fig:malla}, es compleix que:
 \label{sub:principi_de_pascal}
 
 \begin{displayquote}
-La pressió exercida per un fluid incompressible en equilibri dins d'un
-recipient de parets rígides es transmet d'igual manera en totes direccions i en
-tots els seus punts.
+    La pressió exercida per un fluid incompressible en equilibri dins d'un
+    recipient de parets rígides es transmet d'igual manera en totes direccions i en
+    tots els seus punts.
 \end{displayquote}
 
 La diferència de pressió $\Delta P$ entre dos punts submergits a diferent
@@ -890,9 +1201,9 @@ per l'acceleració de la gravetat $g$:
 \label{sub:principi_d_arquimedes}
 
 \begin{displayquote}
-Un cos insoluble totalment o parcialment submergit en un fluid (líquid o gas)
-en repòs rep una força de baix cap a dalt igual al pes del volum del fluid que
-desallotja.
+    Un cos insoluble totalment o parcialment submergit en un fluid (líquid o gas)
+    en repòs rep una força de baix cap a dalt igual al pes del volum del fluid que
+    desallotja.
 \end{displayquote}
 
 La força de flotació $\vec{B}$ d'un cos submergit un volum $V$ en un fuid de densitat $\rho$ i sobre el cual hi actua la força de la gravetat $\vec{g}$ és:
@@ -930,8 +1241,8 @@ per l'àrea en aquell punt.
         \draw[fill=blue!25,draw=black] (0,0) ellipse (0.5 and 3);
         \draw[fill=red!25,draw=black] (5,0) ellipse (0.5*1.5/3 and 1.5);
 
-        \node[below,blue!75] at (0,-3) {$A_1$};
-        \node[below,red!75] at (5,-1.5) {$A_2$};
+        \node[blue!75] at (0,0) {$A_1$};
+        \node[red!75] at (5,0) {$A_2$};
 
         \foreach \y in {2.5,2,...,-2.5} {
             \draw[-latex,blue] (-2,\y) -- (-0.75,\y);
@@ -939,7 +1250,7 @@ per l'àrea en aquell punt.
             \draw[-latex,gray!75,thick] (0.75,\y) -- (4.5,\y*0.5);
         };
         %\foreach \y in {1.25,1,...,-1.25} {
-            %\draw[-latex,red,very thick] (5.5,\y) -- (7,\y);
+        %\draw[-latex,red,very thick] (5.5,\y) -- (7,\y);
         %};
 
         \draw (0,3) -- (5,1.5);
@@ -976,9 +1287,9 @@ El nombre de Reynolds Re per a un líquid de densitat $\rho$ i viscositat cinèt
 \label{sec:termodinamica}
 
 \begin{align}
-PV &= nRT \\
-u &= \frac{3}{2}nRT\ u \alpha T \\
-Q &= c_em\Delta T
+    PV &= nRT \\
+    U &= \frac{3}{2}nRT \qquad \rightarrow \qquad U \propto T \\
+    Q &= c_em\Delta T
 \end{align}
 
 \subsection{1r principi}
@@ -989,8 +1300,8 @@ gas és la suma del treball $W$ i la variació d'energia interna del gas durant
 el procés:
 
 \begin{align}
-Q &= W + \Delta U \\
-W &= \int P dV
+    Q &= W + \Delta U \\
+    W &= \int P dV
 \end{align}
 
 \subsection{Isobàric}
@@ -998,7 +1309,7 @@ W &= \int P dV
 El procés es produeix a \textbf{pressió} constant.
 
 \begin{align}
-Q = P \Delta V + \Delta U
+    Q = P \Delta V + \Delta U
 \end{align}
 
 \subsection{Isotèrmic}
@@ -1006,8 +1317,8 @@ Q = P \Delta V + \Delta U
 El procés es produeix a \textbf{temperatura} constant.
 
 \begin{align}
-\Delta U &= 0\\
-Q = W &= nRT\ln\frac{V_B}{V_A}
+    \Delta U &= 0\\
+    Q = W &= nRT\ln\frac{V_B}{V_A}
 \end{align}
 
 \subsection{Isocor}
@@ -1015,8 +1326,8 @@ Q = W &= nRT\ln\frac{V_B}{V_A}
 El procés es produeix a \textbf{volum} constant.
 
 \begin{align}
-W &= 0\\
-Q &= \Delta U
+    W &= 0\\
+    Q &= \Delta U
 \end{align}
 
 \pagebreak
@@ -1026,18 +1337,18 @@ Q &= \Delta U
 O isentròpic, el procés es produeix sense intercanvi de calor ($Q=0$).
 
 \begin{align}
-Q &= 0\nonumber\\
-W &= -\Delta U \\
-P*V^\gamma &= ctt \\
-\frac{T}{V^{\gamma + 1}} &= ctt \\
-\gamma &= \frac{2}{3} \nonumber
+    Q &= 0\nonumber\\
+    W &= -\Delta U \\
+    P*V^\gamma &= ctt \\
+    \frac{T}{V^{\gamma + 1}} &= ctt \\
+    \gamma &= \frac{2}{3} \nonumber
 \end{align}
 
 \subsection{Eficiència}
 \label{sub:eficiencia}
 
 \begin{equation}
-\eta = \frac{W}{Q}
+    \eta = \frac{W}{Q}
 \end{equation}
 
 \subsection{Segon principi}
@@ -1047,23 +1358,16 @@ L'entropia $S$ d'un sistema es igual a la variació de calor $\Delta Q$ entre la
 temperatura. L'entropia de l'univers sempre augmenta.
 
 \begin{align}
-S &= \frac{\Delta Q}{T} \\
-S &= k_b \ln \Omega \\
-S_\text{univers} &> 0
+    S &= \frac{\Delta Q}{T} \\
+    S &= k_b \ln \Omega \\
+    S_\text{univers} &> 0
 \end{align}
 
-$\Omega$ és el nombre de microestats possibles per al sistema.
+$\Omega$ és el nombre de microestats possibles del sistema.
 
 \begin{equation}
     k_b =  \SI{1.38064852(79)e-23}{\joule\per\kelvin} \qquad \text{(Constant de Boltzmann)}
 \end{equation}
-
-
-
-
-
-
-
 
 
 \end{document}
