@@ -13,7 +13,27 @@
 
 \begin{document}
 
-\title {Física NS}\author {Aleix Boné}\date {\today}\maketitle
+\title {Apunts Física NS}
+\author {Aleix Boné}
+\date {}
+
+\maketitle
+
+\begin{center}
+    \begin{circuitikz}
+        \draw (0,0) to[battery,l=$V_1$] (0,4) to[resistor,l=$R_1$] (4,4)
+        to[battery,l=$V_2$] (4,2) to[resistor,l=$R_2$] (4,0) to[resistor,l=$R_3$] (0,0);
+        \draw (4,0) to (8,0) to[resistor,l=$R_4$] (8,4) to (4,4);
+        \draw [<-,line width=2pt] (2,2) ++(138:5mm) --++(60:-1pt) arc (-220:40:5mm);
+        \draw [->,line width=2pt] (6,2) ++(138:5mm) --++(60:-1pt) arc (-220:40:5mm);
+        \draw[-latex] (-0.25,3) -> node[above,sloped] {$I$} (-0.25,4);
+
+        \draw[fill] (4,4) circle (0.05);
+        \draw[fill] (4,0) circle (0.05);
+
+    \end{circuitikz}
+\end{center}
+
 
 \pagebreak
 
@@ -24,14 +44,16 @@
 \label{sec:cinematica}
 
 \begin{align}
-    \label{equ:Vel.Mitjana}
-    \vec{V_m}&=\frac{\Delta \vec{r}}{\Delta t} \\
-    \label{equ:Vel.Instantanea}
-    \vec{v}&=\frac{d \vec{r}}{d t}\\
-    \label{equ:Acc.Mitjana}
-    \vec{A_m}&=\frac{\Delta \vec{v}}{\Delta t}\\
-    \label{equ:Acc.Instantanea}
-    \vec{a}&=\frac{d \vec{v}}{d t} &= \frac{d^2 \vec{r}}{d t^2}
+    \begin{aligned}[c]
+        \vec{V_m}&=\frac{\Delta \vec{r}}{\Delta t} \\
+        \vec{v}&=\frac{d \vec{r}}{d t}
+    \end{aligned}
+    \qquad
+    \qquad
+    \begin{aligned}[c]
+        \vec{A_m}&=\frac{\Delta \vec{v}}{\Delta t}\\
+        \vec{a}&=\frac{d \vec{v}}{d t} = \frac{d^2 \vec{r}}{d t^2}
+    \end{aligned}
 \end{align}
 
 \subsection{Moviment Rectilini Uniforme (MRU)}
@@ -62,7 +84,7 @@
     \vec{r} &= X(t)i & + Y(t)j \notag \\
     & MRU &  MRUA \notag \\
     & \downarrow  & \downarrow \notag \\
-    \vec{r} &= (x_0+v_0*\cos(\theta)) \ihat & + (y_0 + v_0*\sin(\theta)*t - \frac{1}{2}gt^2) \jmath
+    \vec{r} &= (x_0+v_0*\cos(\theta)) \ihat & + (y_0 + v_0*\sin(\theta)*t - \frac{1}{2}gt^2) \jhat
 \end{align}
 
 Inclinació en un punt P:
@@ -89,34 +111,34 @@ Inclinació en un punt P:
 \subsection{Lleis de Newton}
 \subsubsection{1a llei (inèrcia)}
 \begin{center}
-Si $\sum \vec{F} = 0 \Rightarrow$ objecte en MRU o repòs.
+    Si $\sum \vec{F} = 0 \Rightarrow$ objecte en MRU o repòs.
 \end{center}
 
 \subsubsection{2a llei (fonamental)}
 \begin{align}
-\sum \vec{F}\ &\alpha\ \vec{a} \notag \\
-\downarrow & \notag \\
-\vec{F} &= m * \vec{a} \\ 
-\notag \\
-m &= \text{massa} \notag \\
-\text{(resistència }&\text{al moviment) }\notag \\
+    \sum \vec{F}\ &\alpha\ \vec{a} \notag \\
+    \downarrow & \notag \\
+    \vec{F} &= m * \vec{a} \\ 
+    \notag \\
+    m &= \text{massa} \notag \\
+    \text{(resistència }&\text{al moviment) }\notag \\
 \end{align}
 
 \subsubsection{3a llei (acció-reacció)}
 \begin{align*}
-\vec{F}_{a \rightarrow b} &= -\vec{F}_{b \rightarrow a} \\
-|F_{a \rightarrow b}| &= |F_{b \rightarrow a}|
+    \vec{F}_{a \rightarrow b} &= -\vec{F}_{b \rightarrow a} \\
+    |F_{a \rightarrow b}| &= |F_{b \rightarrow a}|
 \end{align*}
 
 \subsection{Força de fricció}
 
 \begin{equation}
-\vec{F}_r = \mu * N
+    \vec{F}_r = \mu * N
 \end{equation}
 Hi ha dos tipus de coeficients de fricció ($\mu$):
 \begin{itemize}
-\item $\mu _e = $ coeficient de fricció estàtic (quan el cos està en repòs)
-\item $\mu _d = $ coeficient de fricció dinàmic (quan el cos està en moviment)
+    \item $\mu _e = $ coeficient de fricció estàtic (quan el cos està en repòs)
+    \item $\mu _d = $ coeficient de fricció dinàmic (quan el cos està en moviment)
 \end{itemize}
 La fricció sempre va en sentit contrari al moviment.
 
@@ -124,46 +146,43 @@ La fricció sempre va en sentit contrari al moviment.
 \subsection{La màquina d'Atwood}
 Una politja d'on hi pengen dues masses. Si $m_1 > m_2$:
 \begin{equation}
-a = g\frac{m_1-m_2}{m_1+m_2}
+    a = g\frac{m_1-m_2}{m_1+m_2}
 \end{equation} 
 
 \section{Treball i energia}
 
 \begin{align}
-W &= \vec{F}*\Delta \vec{r} = F * \Delta r * cos\theta \\
-W &= \int \vec{F}dx \\
-W &= \Delta E_c \text{ (teorema treball-energia)} \\
-W &= \tau \theta
+    W &= \vec{F}*\Delta \vec{r} = F * \Delta r * cos\theta \\
+    W &= \int \vec{F}dx \\
+    W &= \Delta E_c \text{ (teorema treball-energia)} \\
+    W &= \tau \theta
 \end{align}
 
 \subsection{Forces Conservatives}
 $\vec{F}$ és conservativa si:
 \begin{align*}
-\oint \vec{F}d\vec{r} &= 0 \\
-&\text{ó} \\
-\int \vec{F}d\vec{r} &= ctt
+    \oint \vec{F}d\vec{r} &= 0 \\
+    &\text{ó} \\
+    \int \vec{F}d\vec{r} &= ctt
 \end{align*}
 
 \begin{center}
-(es conservativa si el treball d'un punt a un altre es constant independentment del camí)
+    (es conservativa si el treball d'un punt a un altre es constant independentment del camí)
 \end{center}
 
 \begin{align}
-W_{NC} &= \Delta E_M \\
-E_M &= E_P + E_c
+    W_{NC} &= \Delta E_M \\
+    E_M &= E_P + E_c
 \end{align}
 
 \subsection{Conservació de l'energia}
 Si l'una força $\vec{F}$ es conservativa, té associada una energia potencial $U$:
 \begin{equation}
-U = - \int \vec{F} dx 
+    U = - \int \vec{F} dx 
 \end{equation}
 \subsection{Potència}
 \begin{equation}
-P = \frac{\Delta E}{\Delta t}
-\end{equation}
-\begin{equation}
-[P] = \frac{J}{s} = w\ (\text{watt})
+    P = \frac{\Delta E}{\Delta t} \qquad \left[  \si{\watt} =\si{\joule\per\second} = \si{\kilo\gram\metre\squared\per\second\cubed}\right]
 \end{equation}
 
 \section{Xocs}
@@ -171,18 +190,18 @@ Hi ha dos tipus de xocs, els elàstics i els inelàstics:
 
 \subsection{Impuls}
 \begin{equation}
-\vec{I} = \vec{F}\Delta t = m \vec{a} \Delta t = m \Delta \vec{v} = \Delta \vec{p}
+    \vec{I} = \vec{F}\Delta t = m \vec{a} \Delta t = m \Delta \vec{v} = \Delta \vec{p}
 \end{equation}
 
 \begin{equation}
-\frac{d\vec{p}}{dt} = \vec{F}
+    \frac{d\vec{p}}{dt} = \vec{F}
 \end{equation}
 
 \subsection{Inelàstics}
 Son xocs irreals en el que es conserva l'energia:
 \begin{align}
-\Delta E &= 0 \\
-\Delta \vec{p} &= 0
+    \Delta E &= 0 \\
+    \Delta \vec{p} &= 0
 \end{align}
 
 
@@ -190,25 +209,25 @@ Son xocs irreals en el que es conserva l'energia:
 \subsection{Elàstics}
 Son xocs en els que no es conserva l'energia degut a la pèrdua d'energia en forma de calor, soroll, deformació del material...
 \begin{align}
-\Delta E &\neq 0 \qquad \rightarrow E_f = E_i - E_\text{perduda}\\
-\Delta \vec{p} &= 0
+    \Delta E &\neq 0 \qquad \rightarrow E_f = E_i - E_\text{perduda}\\
+    \Delta \vec{p} &= 0
 \end{align}
 
 \subsection{Coeficient de restitució}
 Modela la pèrdua d'energia en un xoc inelàstic:
 \begin{equation}
-E_\text{perduda} = \frac{v_{f1}-v_{f2}}{v_{i1}-v_{i2}}
+    E_\text{perduda} = \frac{v_{f1}-v_{f2}}{v_{i1}-v_{i2}}
 \end{equation}
 
 \section{Dinàmica de rotació}
 \subsection{Moment}
 Si tenim una força $\vec{F}$ que actua sobre un cos a una distància del centre de masses definida pel vector $\vec{r}$, el moment que genera aquesta força es:
 \begin{equation}
-\vec{\tau} = \vec{r} \times \vec{F}
+    \vec{\tau} = \vec{r} \times \vec{F}
 \end{equation}
 On $\times$ es el producte vectorial i per tant:
 \begin{equation}
-\vec{\tau} \perp \vec{r}\ \&\ \vec{F}
+    \vec{\tau} \perp \vec{r}\ \&\ \vec{F}
 \end{equation}
 
 \begin{center}
@@ -229,51 +248,51 @@ On $\times$ es el producte vectorial i per tant:
 
 Utilitzarem el símbol $\odot$ per denotar que $\vec{\tau}$ va \emph{cap a fora} i el símbol $\times$ per denotar que va \emph{cap a dins}
 \begin{align}
-|\vec{\tau}| &= |\vec{r}||\vec{F}|\sin \theta \\
-&= m\vec{a}\vec{r} = m r^2 \alpha \quad \text{si $\theta = \pi$}\\
-|\vec{\tau}_\text{total}| &= \alpha \sum m_i r_i^2 = I\alpha
+    |\vec{\tau}| &= |\vec{r}||\vec{F}|\sin \theta \\
+    &= m\vec{a}\vec{r} = m r^2 \alpha \quad \text{si $\theta = \pi$}\\
+    |\vec{\tau}_\text{total}| &= \alpha \sum m_i r_i^2 = I\alpha
 \end{align}
 
 \paragraph{Moment d'inèrcia}
 \begin{align}
-I &\equiv \sum m_i r_i^2 \\
-I &= \int r^2 dm
+    I &\equiv \sum m_i r_i^2 \\
+    I &= \int r^2 dm
 \end{align}
 Per a un cilindre massís:
 \begin{equation}
-I = \frac{1}{2}mr^2
+    I = \frac{1}{2}mr^2
 \end{equation}
 
 \subsection{Energia de rotació}
 \begin{equation}
-E_r = \frac{1}{2}\omega^2I
+    E_r = \frac{1}{2}\omega^2I
 \end{equation}
 En general, l'energia cinètica es:
 \begin{equation}
-E_c = E_{c1} + E_r = \frac{1}{2} m v^2 + \frac{1}{2}I\omega^2
+    E_c = E_{c1} + E_r = \frac{1}{2} m v^2 + \frac{1}{2}I\omega^2
 \end{equation}
 
 \subsection{Rodament amb desplaçament}
 Si una esfera roda es compleix que:
 \begin{equation}
-v_{cm} = \omega R
+    v_{cm} = \omega R
 \end{equation}
 Si $v_{cm} > \omega R$, l'esfera llisca.
 
 \subsection{Moment angular(L)}
 \begin{equation}
-\vec{L} = \vec{r} \times \vec{p}
+    \vec{L} = \vec{r} \times \vec{p}
 \end{equation}
 
 \begin{align}
-\vec{L} &= I \vec{\omega} \\
-\frac{d\vec{L}}{dt} &= \vec{\tau}
+    \vec{L} &= I \vec{\omega} \\
+    \frac{d\vec{L}}{dt} &= \vec{\tau}
 \end{align}
 
 \subsubsection{Teorema de Steiner}
 El moment d'inèrcia d'un eix desplaçat $d$ unitats del centre de masses es:
 \begin{equation}
-I_d = I_{cm} + m d^2
+    I_d = I_{cm} + m d^2
 \end{equation}
 
 \section{Camp gravitatori}
@@ -796,15 +815,44 @@ El flux en una \textbf{superfície tancada} $S$ és
     \varepsilon_0 = \SI{8.854187817\dots e-12}{\farad\per\metre} \qquad \text{(Permeabilitat elèctrica del buit)}
 \end{equation}
 
+\subsection{Transformadors (Inductància mútua)}
+\label{sub:transformadors}
 
+\begin{equation}
+    \frac{\varepsilon_1}{\varepsilon_2} = \frac{N_1}{N_2}
+\end{equation}
 
+\begin{center}
+    \begin{circuitikz}
+        \draw
+        (0,0) node[transformer] (T) {}
+        node[ocirc] (A) at ([xshift=-1cm]T.A1) {}
+        node[ocirc] (B) at ([xshift=-1cm]T.A2) {}
+        node[ocirc] (C) at ([xshift=1cm]T.B1) {}
+        node[ocirc] (D) at ([xshift=1cm]T.B2) {}
+        %node[circ] (E) at ([xshift=0.4cm,yshift=-5pt]T.A1) {}
+        %node[circ] (F) at ([xshift=-0.4cm,yshift=-5pt]T.B1) {}
+        (T.A1) to[-o] (A)
+        (T.A2) to [-o] (B) 
+        (T.B1) to[-o] (C)
+        (T.B2) to [-o] (D)
+        (T.west) node{$L_1$}
+        (T.east) node{$L_2$}
+        ;
+        ;
+    \end{circuitikz}
+\end{center}
 
+\subsubsection{Autoinductància}
+\label{ssub:autoinductancia}
 
+\begin{equation}
+    \varepsilon = L \frac{dI}{dt} 
+\end{equation}
 
-
-
-
-
+\begin{equation}
+    L = \text{Coeficient d'inductància} \qquad \left[ \si{\henry} \right]
+\end{equation}
 
 \section{Moviment harmònic simple (MHS)}
 \label{sec:moviment_harm_nic_simple}
@@ -920,7 +968,7 @@ La potència dissipada per l'efecte Joule ve determinada per:
 \end{equation}
 
 \begin{equation}
-    Q = Pt \qquad \left[\si{\joule} = \si{\newton\per\metre} = \si{\kilo\gram\metre\squared\per\second\squared} \right]
+    Q = Pt \qquad \left[\si{\joule} = \si{\newton\metre} = \si{\kilo\gram\metre\squared\per\second\squared} \right]
 \end{equation}
 
 
@@ -1109,7 +1157,7 @@ L'índex de refracció entre dos medis és igual a la velocitat de la llum en el
 primer medi entre la velocitat de la llum en el segon medi:
 
 \begin{equation}
-_1n_2 = \frac{v_1}{v_2}
+    _1n_2 = \frac{v_1}{v_2}
 \end{equation}
 
 \subsection{Índex de refracció absolut}
@@ -1130,11 +1178,11 @@ la llum en el buit $c$ i la velocitat de la llum en el medi $v$:
 L'angle d'incidència $\ihat$ per l'índex de refracció absolut del primer medi
 és igual a l'angle de refracció $\hat{r}$ per l'índex absolut del segon medi.
 \begin{equation}
-n_1 \sin \ihat = n_2 \sin \hat{r}
+    n_1 \sin \ihat = n_2 \sin \hat{r}
 \end{equation}
 
 \begin{center}
-    
+
     \begin{tikzpicture}
         \shade[top color = gray!50, bottom color = white] (-3,0) rectangle (3,-3);
         \draw[very thick] (-3,0) -- (3,0);
@@ -1157,12 +1205,12 @@ n_1 \sin \ihat = n_2 \sin \hat{r}
 
 \subsection{lleis dels miralls}
 \begin{equation}
-\frac{1}{s} + \frac{1}{s'} = \frac{2}{r}
+    \frac{1}{s} + \frac{1}{s'} = \frac{2}{r}
 \end{equation}
 
 \subsection{lleis de la lent}
 \begin{equation}
-\frac{1}{s} + \frac{1}{s'} = \frac{1}{f}
+    \frac{1}{s} + \frac{1}{s'} = \frac{1}{f}
 \end{equation}
 
 
@@ -1369,5 +1417,95 @@ $\Omega$ és el nombre de microestats possibles del sistema.
     k_b =  \SI{1.38064852(79)e-23}{\joule\per\kelvin} \qquad \text{(Constant de Boltzmann)}
 \end{equation}
 
+\section{Unitats del SI}
+\label{sec:unitats_del_si}
+
+\begin{table}[H]
+    \centering
+    \caption{Les 7 Unitats bàsiques del SI}
+    \label{tab:si_unitats_basiques}
+    \begin{tabular}{ccc}
+        \toprule
+        Símbol  &   Nom     &   Magnitud \\
+        \midrule
+        \si{\metre}     & metre     & Longitud \\
+        \si{\kilo\gram} & kilogram  & Massa\\
+        \si{\second}    & segon     & Temps \\
+        \si{\ampere}    & ampere    & Intensitat elèctrica \\
+        \si{\kelvin}    & Kelvin    & Temperatura \\
+        \si{\mol}       & Mols      & Quantitat de substància\\
+        \si{\candela}   & Candela   & Intensitat Lluminosa\\
+
+        \bottomrule
+
+    \end{tabular}
+\end{table}
+
+\begin{table}[H]
+    \centering
+    \caption{Prefixos del SI}
+    \label{tab:prefixos_del_si}
+    \begin{tabular}{ccc}
+        \toprule
+        Símbol  &   Nom     &   Factor \\
+        \midrule
+        \si{\deca}   & deca     &   $10^1$  \\
+        \si{\hecto}  & hecto    &   $10^2$  \\
+        \si{\kilo}   & quilo    &   $10^3$  \\
+        \si{\mega}   & mega     &   $10^6$  \\
+        \si{\giga}   & giga     &   $10^9$  \\
+        \si{\tera}   & tera     &   $10^{12}$ \\
+        \si{\peta}   & peta     &   $10^{15}$ \\
+        \si{\exa}    & exa      &   $10^{18}$ \\
+        \si{\zetta}  & zetta    &   $10^{21}$ \\
+        \si{\yotta}  & yotta    &   $10^{24}$ \\
+        \bottomrule
+    \end{tabular}
+    \qquad
+    \begin{tabular}{ccc}
+        \toprule
+        Símbol  &   Nom     &   Factor \\
+        \midrule
+        \si{\deci}   & deci   &   $10^{-1}$  \\
+        \si{\centi}  & centi  &   $10^{-2}$  \\
+        \si{\milli}  & mil·li &   $10^{-3}$  \\
+        \si{\micro}  & micro  &   $10^{-6}$  \\
+        \si{\nano}   & nano   &   $10^{-9}$  \\
+        \si{\pico}   & pico   &   $10^{-12}$ \\
+        \si{\femto}  & femto  &   $10^{-15}$ \\
+        \si{\atto}   & atto   &   $10^{-18}$ \\
+        \si{\zepto}  & zepto  &   $10^{-21}$ \\
+        \si{\yocto}  & yocto  &   $10^{-24}$ \\
+
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+
+\begin{table}[H]
+    \centering
+    \caption{Unitats derivades}
+    \label{tab:unidades_derivadas}
+    \begin{tabular}{cccc}
+        \toprule
+        Símbol  &   Nom     & En funció d'altres &   En unitats bàsiques \\
+        \midrule
+
+        \si{\hertz} & hertz && \si{\per\second} \\
+        \si{\newton} & newton && \si{\kilo\gram\metre\per\second\squared} \\
+        \si{\pascal} & pascal & \si{\newton \per \metre \squared} & \si{\kilo \gram \per\metre \per\second\squared} \\
+        \si{\joule} & joule & \si{\newton\metre} & \si{\kilo\gram\metre\squared\per\second\squared} \\
+        \si{\watt} & watt &\si{\joule\per\second} & \si{\kilo\gram\metre\squared\per\second\cubed}\\
+        \si{\coulomb} & coulomb && \si{\ampere\second}\\
+        \si{\volt} & volt &\si{\ampere\ohm} = \si{\watt\per\ampere} = \si{\joule\per\coulomb}& \si{\kilo\gram\metre\squared\per\second\cubed\per\ampere} \\
+        \si{\farad} & faraday & \si{\coulomb\per\volt} & \si{\second\tothe{4}\ampere\squared\per\kilo\gram\per\metre\squared} \\
+        \si{\ohm} & ohm &\si{\volt\per\ampere} = \si{\per\siemens}& \si{\kilo\gram\metre\squared\per\second\cubed\per\ampere\squared} \\
+        \si{\siemens} & siemens & \si{\ampere\per\volt} = \si{\per\ohm} & \si{\second\cubed\ampere\squared\per\kilo\gram\per\metre\squared} \\
+        \si{\weber} & weber & \si{\joule\per\ampere} = \si{\volt\second} & \si{\kilo \gram \metre \squared \per \second \squared \per \ampere} \\
+        \si{\tesla} & tesla &\si{\weber\per\metre\squared}& \si{\kilo\gram\per\ampere\per\second\squared}\\
+        \si{\henry} & henry & \si{\weber\per\ampere} & \si{\kilo\gram\metre\squared\per\second\squared\per\ampere\squared}\\
+        \bottomrule
+    \end{tabular}
+\end{table}
 
 \end{document}
