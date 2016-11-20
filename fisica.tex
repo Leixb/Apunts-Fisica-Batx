@@ -1,5 +1,6 @@
 \input{preamble}
 
+
 \usetikzlibrary{decorations.pathmorphing,patterns}
 \usetikzlibrary{3d}
 \usepackage[siunitx]{circuitikz}
@@ -125,6 +126,7 @@ Inclinació en un punt P:
 \begin{align*}
     R &= \text{radi} &= ctt \\
     \phi &= \text{angle} \\
+    \omega &= \text{velocitat angular} &= \frac{\Delta \phi}{\Delta t} \\
     \omega &= \text{velocitat angular} &= \frac{\Delta \phi}{\Delta t} \\
     \alpha &= \text{acceleració angular} &= \frac{\Delta \omega}{\Delta t} \\
     T &= \text{període} &= \frac{2\pi}{\omega} \\
@@ -558,6 +560,79 @@ El moment d'inèrcia d'un eix desplaçat $d$ unitats del centre de masses es:
 \end{multicols}
 
 
+\subsection{Llei de Gauss per a un camp elèctric}
+\label{sub:llei_de_gauss_per_a_un_camp_electric}
+
+El flux elèctric en una \textbf{superfície tancada} $S$ és
+
+\begin{equation}
+    \Phi = \oint \vec{E} d\vec{S} = \frac{Q}{\varepsilon_0}
+\end{equation}
+
+\begin{equation}
+    \varepsilon_0 = \SI{8.854187817\dots e-12}{\farad\per\metre} \qquad \text{(Permitivitat elèctrica del buit)}
+\end{equation}
+
+\subsection{Densitat de càrrega}
+\label{sub:densitat_de_carrega}
+
+La densitat de càrrega d'un objecte es la quantitat de càrrega entre el volum,
+la superfície o la longitud depenent de com sigui l'objecte pel que circulen
+les càrregues:
+
+\vspace{1em}
+
+\begin{center}
+    \begin{tabular}{ccc}
+        \toprule
+        Volumètrica & $\rho$ & \si{\coulomb\per\metre\cubed} \\
+        Superficial & $\sigma$ & \si{\coulomb\per\metre\squared} \\
+        Lineal & $\lambda$ & \si{\coulomb\per\metre} \\
+        \bottomrule
+    \end{tabular}
+\end{center}
+
+\subsection{Camp elèctric al exterior d'una esfera}
+\label{sub:camp_electric_al_exterior_d_una_esfera}
+El camp elèctric al exterior d'una esfera de càrrega $Q$ és igual al d'una
+càrrega $Q$ puntual:
+
+\begin{align}
+    \oint \vec{E}d\vec{S} = \oint EdS = ES = E4\pi r^2 \nonumber \\
+    E4\pi r^2 = \frac{Q}{\varepsilon_0} & \Rightarrow E = k\frac{Q}{r^2}
+\end{align}
+
+\subsection{Camp elèctric d'una escorça}
+\label{sub:camp_electric_d_una_escorca}
+
+\begin{align}
+    r > R & \Rightarrow E = k \frac{Q}{r^2} \\
+    r < R & \Rightarrow E = 0
+\end{align}
+
+\subsection{Camp elèctric d'una placa}
+\label{sub:camp_electric_d_una_placa}
+
+\begin{align}
+    \oint \vec{E}d\vec{S} = \oint EdS = ES = E\pi r^2 \nonumber \\
+    \frac{Q}{S} = \sigma \rightarrow Q = \sigma \pi r^2 \nonumber \\
+    E\pi r^2 = \frac{Q}{\varepsilon_0} & \Rightarrow E = \frac{\sigma}{\varepsilon_0}
+\end{align}
+
+\subsection{Camp elèctric d'un cable}
+\label{sub:camp_electric_d_un_cable}
+
+\begin{align}
+    \oint \vec{E}d\vec{S} = \oint EdS = ES = E2\pi rL \nonumber \\
+    \frac{Q}{L} = \lambda \rightarrow Q = \lambda \pi r \nonumber \\
+    E 2\pi rL = \frac{Q}{\varepsilon_0} &\Rightarrow E = \frac{\lambda}{2\pi r\varepsilon_0}
+\end{align}
+
+
+
+
+
+
 
 
 \section{Camp magnètic}
@@ -607,6 +682,34 @@ La força de Lorenz és sempre perpendicular a $\vec{v}$ i a $\vec{B}$, la magni
     qvB\sin\widehat{vB}
 \end{equation}
 
+\subsection{Efectes d'un camp magnètic sobre un cable}
+\label{sub:efectes_d_un_camp_magnetic_sobre_un_cable}
+
+Un camp magnètic $\vec{B}$ genera una força sobre un cable on hi circula una
+intensitat $I$:
+
+\begin{equation}
+    \vec{F} = I\vec{\ell}\times\vec{B}
+\end{equation}
+\begin{center}
+    \begin{tikzpicture}
+        %\draw[help lines] (0,0) grid (10,10);
+        \node [gray!75,left] at (0,3) {$\vec{B}\quad$};
+        \foreach \x in {0,...,5} {
+            \foreach \y in {0,...,3}
+            {
+                \draw [color=gray!75,fill] (\x,\y) circle (0.05);
+                \draw [color=gray!75,thick] (\x,\y) circle (0.15);
+            }
+        }
+        \draw[very thick] (0,2.5) -- (5,2.5);
+        \draw[-latex] (2,2.75) -- node[above] {$\vec{I}$}(3,2.75);
+        \draw[-latex] (2.5,2.5) -- node[right] {$\vec{F}$} (2.5,0.5);
+
+    \end{tikzpicture}
+\end{center}
+
+\pagebreak
 \subsection{Llei de Biot i Savart}
 \label{sub:llei_de_biot_i_savart}
 
@@ -831,17 +934,13 @@ En un interval de temps discret:
     \varepsilon = -N \frac{\Delta \Phi}{\Delta t}
 \end{equation}
 
-\subsection{Llei de Gauss}
-\label{sub:llei_de_gauss}
+\subsection{Llei de Gauss per a un camp magnètic}
+\label{sub:llei_de_gauss_per_a_un_camp_magnetic}
 
-El flux en una \textbf{superfície tancada} $S$ és
-
-\begin{equation}
-    \Phi = \oint \vec{B} d\vec{S} = \frac{Q}{\varepsilon_0}
-\end{equation}
+El flux magnètic en una \textbf{superfície tancada} $S$ és
 
 \begin{equation}
-    \varepsilon_0 = \SI{8.854187817\dots e-12}{\farad\per\metre} \qquad \text{(Permitivitat elèctrica del buit)}
+    \Phi = \oint \vec{B} d\vec{S} = 0 
 \end{equation}
 
 \subsection{Transformadors (Inductància mútua)}
@@ -1525,7 +1624,6 @@ $\Omega$ és el nombre de microestats possibles del sistema.
         \si{\joule} & joule & \si{\newton\metre} & \si{\kilo\gram\metre\squared\per\second\squared} \\
         \si{\watt} & watt &\si{\joule\per\second} & \si{\kilo\gram\metre\squared\per\second\cubed}\\
         \si{\coulomb} & coulomb && \si{\ampere\second}\\
-        \si{\volt} & volt &\si{\ampere\ohm} = \si{\watt\per\ampere} = \si{\joule\per\coulomb}& \si{\kilo\gram\metre\squared\per\second\cubed\per\ampere} \\
         \si{\farad} & faraday & \si{\coulomb\per\volt} & \si{\second\tothe{4}\ampere\squared\per\kilo\gram\per\metre\squared} \\
         \si{\ohm} & ohm &\si{\volt\per\ampere} = \si{\per\siemens}& \si{\kilo\gram\metre\squared\per\second\cubed\per\ampere\squared} \\
         \si{\siemens} & siemens & \si{\ampere\per\volt} = \si{\per\ohm} & \si{\second\cubed\ampere\squared\per\kilo\gram\per\metre\squared} \\
