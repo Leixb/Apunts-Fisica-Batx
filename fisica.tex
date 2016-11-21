@@ -198,7 +198,7 @@ $\vec{F}$ és conservativa si:
 \end{align*}
 
 \begin{center}
-    (es conservativa si el treball d'un punt a un altre es constant independentment del camí)
+    (es conservativa si el treball d'un punt a un altre és constant independentment del camí)
 \end{center}
 
 \begin{align}
@@ -207,7 +207,7 @@ $\vec{F}$ és conservativa si:
 \end{align}
 
 \subsection{Conservació de l'energia}
-Si l'una força $\vec{F}$ es conservativa, té associada una energia potencial $U$:
+Si l'una força $\vec{F}$ és conservativa, té associada una energia potencial $U$:
 \begin{equation}
     U = - \int \vec{F} dx 
 \end{equation}
@@ -256,7 +256,7 @@ Si tenim una força $\vec{F}$ que actua sobre un cos a una distància del centre
 \begin{equation}
     \vec{\tau} = \vec{r} \times \vec{F}
 \end{equation}
-On $\times$ es el producte vectorial i per tant:
+On $\times$ és el producte vectorial i per tant:
 \begin{equation}
     \vec{\tau} \perp \vec{r}\ \&\ \vec{F}
 \end{equation}
@@ -379,6 +379,13 @@ El moment d'inèrcia d'un eix desplaçat $d$ unitats del centre de masses es:
         \sqrt{2G\frac{M}{r}} = \sqrt{2}V_\text{orbital}
     \end{equation}
 
+    \subsection{Potencial gravitatori}
+    \label{sub:potencial_gravitatori}
+    
+    \begin{equation}
+        V = -G \frac{M}{r}
+    \end{equation}
+
 \end{multicols}
 
 \subsection{Energies}
@@ -415,7 +422,7 @@ El moment d'inèrcia d'un eix desplaçat $d$ unitats del centre de masses es:
             \varepsilon = \frac{a}{b} = \text{excentricitat de l'òrbita}
         \end{equation}
     \item El vector $\vec{r}$ escombra àrees iguals en temps iguals, per tant, la velocitat varia durant l'òrbita del planeta. 
-    \item El període al quadrat es directament proporcional al radi de l'òrbita al cub. Suposant que l'\textbf{òrbita sigui circular}:
+    \item El període al quadrat és directament proporcional al radi de l'òrbita al cub. Suposant que l'\textbf{òrbita sigui circular}:
         \vspace{1cm}
         \begin{equation}
             T^2 = \frac{4\pi}{GM}r^3
@@ -442,6 +449,13 @@ El moment d'inèrcia d'un eix desplaçat $d$ unitats del centre de masses es:
         \shade[ball color=white] (5,0) circle (0.3) node {$m$};
     \end{tikzpicture}
 \end{center}
+
+\subsection{Teorema de Gauss pel camp gravitatori}
+\label{sub:teorema_de_gauss_pel_camp_gravitatori}
+
+\begin{equation}
+    \Phi = \oint \vec{g}d \vec{S} = -4\pi GM
+\end{equation}
 
 \section{Camp elèctric}
 \label{sec:camp_electric}
@@ -532,7 +546,7 @@ El moment d'inèrcia d'un eix desplaçat $d$ unitats del centre de masses es:
         U_T = \mathlarger{\sum_{i=1}^n} \sum_{j=1}^n U_{ji}
     \end{equation}
 
-    El treball es igual a menys la variació d'energia electrostàtica:
+    El treball és igual a menys la variació d'energia electrostàtica:
 
     \begin{equation}
         W = - \Delta U
@@ -576,7 +590,7 @@ El flux elèctric en una \textbf{superfície tancada} $S$ és
 \subsection{Densitat de càrrega}
 \label{sub:densitat_de_carrega}
 
-La densitat de càrrega d'un objecte es la quantitat de càrrega entre el volum,
+La densitat de càrrega d'un objecte és la quantitat de càrrega entre el volum,
 la superfície o la longitud depenent de com sigui l'objecte pel que circulen
 les càrregues:
 
@@ -613,6 +627,8 @@ càrrega $Q$ puntual:
 \subsection{Camp elèctric d'una placa}
 \label{sub:camp_electric_d_una_placa}
 
+El camp elèctric d'una placa és constant i no depén de la distància.
+
 \begin{align}
     \oint \vec{E}d\vec{S} = \oint EdS = ES = E\pi r^2 \nonumber \\
     \frac{Q}{S} = \sigma \rightarrow Q = \sigma \pi r^2 \nonumber \\
@@ -624,7 +640,7 @@ càrrega $Q$ puntual:
 
 \begin{align}
     \oint \vec{E}d\vec{S} = \oint EdS = ES = E2\pi rL \nonumber \\
-    \frac{Q}{L} = \lambda \rightarrow Q = \lambda \pi r \nonumber \\
+    \frac{Q}{L} = \lambda \rightarrow Q = \lambda L \nonumber \\
     E 2\pi rL = \frac{Q}{\varepsilon_0} &\Rightarrow E = \frac{\lambda}{2\pi r\varepsilon_0}
 \end{align}
 
@@ -709,15 +725,15 @@ intensitat $I$:
     \end{tikzpicture}
 \end{center}
 
+
 \pagebreak
 \subsection{Llei de Biot i Savart}
 \label{sub:llei_de_biot_i_savart}
 
-La llei de Biot i Savart relaciona el camp magnètic amb les corrents que
-el creen.
+El camp magnètic creat per una càrrega $q$ que es mou a una velocitat $v$ és:
 
 \begin{equation}
-    d\vec{B} = \frac{\mu_0I}{4\pi} \frac{d\vec{\ell}\times\vec{u}_r}{r^3}
+    B = \frac{\mu_0}{4\pi} \frac{qv}{r^2}
 \end{equation}
 \begin{equation}
     \mu_0 = \SI{4\pi e-7}{\newton\per\ampere\squared} \qquad \text{(Permeabilitat elèctrica del buit)}
@@ -773,6 +789,17 @@ el creen.
 \end{center}
 
 
+\subsection{Força magnètica entre dos cables}
+\label{sub:forca_magnetica_entre_dos_cables}
+
+Dos cables pels quals circula unes corrents $I_1$ i $I_2$ generen una força
+un sobre l'altre degut als camp magnètic que formen.
+
+\begin{equation}
+    \frac{F}{\ell} = \frac{\mu_0}{2\pi} \frac{I_1 I_2}{d}
+\end{equation}
+
+
 \subsection{Camp magnètic d'una espira}
 \label{sub:camp_magnetic_d_una_espira}
 
@@ -802,7 +829,7 @@ $I$ és:
     \end{tikzpicture}
 \end{center}
 
-El camp magnètic a una distància $z$ del centre de l'anella a través del eix és:
+El camp magnètic a una distància $z$ del centre de l'espira a través del eix és:
 
 \begin{equation}
     B = \frac{\mu_0R^2I}{2\left(z^2 + R^2 \right)^\frac{3}{2}}
@@ -851,7 +878,7 @@ El camp magnètic a una distància $z$ del centre de l'anella a través del eix 
     n = \frac{N}{\ell}
 \end{equation}
 
-On $N$ és el nombre d'espires i $\ell$ es la longitud del solenoide.
+On $N$ és el nombre d'espires i $\ell$ és la longitud del solenoide.
 
 \begin{center}
     \begin{tikzpicture}[cross/.style={path picture={ 
@@ -900,7 +927,34 @@ intensitat $I$ i amb $N$ espires es:
     \end{tikzpicture}
 \end{center}
 
+\subsection{Experiment de Henry}
+\label{sub:experiment_de_henry}
+
+\begin{equation}
+    \varepsilon = vBL
+\end{equation}
+
 \pagebreak
+
+\subsection{Circulació}
+\label{sub:circulacio}
+
+La circulació $C$ d'un vector $A$ al llarg d'un vector $ \vec{\ell} $ és:
+
+\begin{equation}
+    C = \int \vec{A} d \vec{\ell}
+\end{equation}
+
+\subsection{Teorema d'Ampère}
+\label{sub:teorema_d_ampere}
+
+En un camí tancat:
+
+\begin{equation}
+    C = \oint \vec{B} d \vec{\ell} = \mu_0 I
+\end{equation}
+
+
 
 \subsection{Flux}
 \label{sub:flux}
@@ -975,7 +1029,7 @@ El flux magnètic en una \textbf{superfície tancada} $S$ és
 \label{ssub:autoinductancia}
 
 \begin{equation}
-    \varepsilon = L \frac{dI}{dt} 
+    N\Phi = LI
 \end{equation}
 
 \begin{equation}
@@ -1003,7 +1057,7 @@ Les equacions de moviment per a un objecte que es mou seguint un moviment harmò
 \begin{align}
     x(t) &= x_0 + A\sin(\phi_0+\omega t) \\
     v(t) &= A\omega\cos(\phi_0+\omega t) \\
-    a(t) &= -A\omega^2\cos(\phi_0+\omega t)
+    a(t) &= -A\omega^2\sin(\phi_0+\omega t)
 \end{align}
 
 El període $T$, el període angular $\omega$ i la freqüència $f$ segueixen la
@@ -1037,6 +1091,10 @@ moviment harmònic simple.
     E_p = \frac{1}{2}k\Delta x
 \end{equation}
 
+\begin{equation}
+    \omega = \sqrt{ \frac{k}{m} }
+\end{equation}
+
 \subsection{Període d'un pèndul simple}
 \label{sub:periode_d_un_pendul_simple}
 
@@ -1052,15 +1110,6 @@ El període $T$ d'un pèndul simple de longitud $\ell$ que oscil·la en graus pe
 \section{Circuits elèctrics}
 \label{sec:circuits_electrics}
 
-\subsection{Resistències}
-\label{sub:resistencies}
-
-La resistència d'un material de longitud $\ell$ àrea $A$ i resistivitat
-elèctrica $\rho$ \footnote{\emph{rho}} [\si{\ohm\metre}] és:
-
-\begin{equation}
-    R = \rho \frac{\ell}{A} \qquad \left[ \si{\ohm} = \si{\kilo\gram\metre\squared\per\second\cubed\per\ampere\squared} \right]
-\end{equation}
 
 \subsection{Intensitat}
 \label{sub:intensitat}
@@ -1099,11 +1148,18 @@ La potència dissipada per l'efecte Joule ve determinada per:
     Q = Pt \qquad \left[\si{\joule} = \si{\newton\metre} = \si{\kilo\gram\metre\squared\per\second\squared} \right]
 \end{equation}
 
+\subsection{Resistències}
+\label{sub:resistencies}
+
+La resistència d'un material de longitud $\ell$ àrea $A$ i resistivitat
+elèctrica $\rho$ \footnote{\emph{rho}} [\si{\ohm\metre}] és:
+
+\begin{equation}
+    R = \rho \frac{\ell}{A} \qquad \left[ \si{\ohm} = \si{\kilo\gram\metre\squared\per\second\cubed\per\ampere\squared} \right]
+\end{equation}
 
 \subsubsection{En sèrie}
 \label{ssub:en_serie_r}
-
-
 
 \begin{center}
     \begin{circuitikz}
@@ -1404,7 +1460,7 @@ La força de flotació $\vec{B}$ d'un cos submergit un volum $V$ en un fuid de d
 \label{sub:equacio_de_continuitat}
 
 En un mateix fluid, es compleix que la velocitat del fluid en un punt per 
-l'àrea de la secció perpendicular es igual a la velocitat en un altre punt
+l'àrea de la secció perpendicular és igual a la velocitat en un altre punt
 per l'àrea en aquell punt.
 
 \begin{equation}
@@ -1529,7 +1585,7 @@ O isentròpic, el procés es produeix sense intercanvi de calor ($Q=0$).
 \subsection{Segon principi}
 \label{sub:segon_principi}
 
-L'entropia $S$ d'un sistema es igual a la variació de calor $\Delta Q$ entre la
+L'entropia $S$ d'un sistema és igual a la variació de calor $\Delta Q$ entre la
 temperatura. L'entropia de l'univers sempre augmenta.
 
 \begin{align}
@@ -1624,6 +1680,7 @@ $\Omega$ és el nombre de microestats possibles del sistema.
         \si{\joule} & joule & \si{\newton\metre} & \si{\kilo\gram\metre\squared\per\second\squared} \\
         \si{\watt} & watt &\si{\joule\per\second} & \si{\kilo\gram\metre\squared\per\second\cubed}\\
         \si{\coulomb} & coulomb && \si{\ampere\second}\\
+        \si{\volt} & volt &\si{\ampere\ohm} = \si{\joule\per\coulomb}& \si{\kilo\gram\metre\squared\per\second\cubed\per\ampere}\\
         \si{\farad} & faraday & \si{\coulomb\per\volt} & \si{\second\tothe{4}\ampere\squared\per\kilo\gram\per\metre\squared} \\
         \si{\ohm} & ohm &\si{\volt\per\ampere} = \si{\per\siemens}& \si{\kilo\gram\metre\squared\per\second\cubed\per\ampere\squared} \\
         \si{\siemens} & siemens & \si{\ampere\per\volt} = \si{\per\ohm} & \si{\second\cubed\ampere\squared\per\kilo\gram\per\metre\squared} \\
