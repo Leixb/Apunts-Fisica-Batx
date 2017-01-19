@@ -4,6 +4,7 @@
 \usetikzlibrary{decorations.pathmorphing,patterns}
 \usetikzlibrary{3d}
 \usepackage[siunitx]{circuitikz}
+\usepackage[version=4]{mhchem}
 
 \let\oldsection\section
 \renewcommand\section{\clearpage\oldsection}
@@ -1511,7 +1512,7 @@ $\mathrm{Re} > 4000$ el règim és turbulent, si $\mathrm{Re} < 2300$ el règim 
 El nombre de Reynolds Re per a un líquid de densitat $\rho$ i viscositat cinètica $\mu$ que circula a una velocitat $v$ per un tub de diàmetre $D_H$ és:
 
 \begin{equation}
-    \mathrm{Re} = {{\rho v D_H} \over {\mu}} 
+    \mathrm{Re} = \frac{\rho v D_H}{\mu} 
 \end{equation}
 
 \section{Termodinàmica}
@@ -1598,6 +1599,182 @@ $\Omega$ és el nombre de microestats possibles del sistema.
 
 \begin{equation}
     k_b =  \SI{1.38064852(79)e-23}{\joule\per\kelvin} \qquad \text{(Constant de Boltzmann)}
+\end{equation}
+
+
+\section{Física nuclear}
+\label{sec:fisica_nuclear}
+
+
+\begin{align}
+    \text{Diàmetre atòmic} = \SI{1}{\angstrom} = \SI{10e-10}{\metre}
+    \text{Diàmetre del nucli atòmic} = \SI{1e-4}{\angstrom} = \SI{1e-14}{\metre}
+\end{align}
+
+\begin{align}
+    A &= \text{Nombre màssic} = n^op^+ + n^on \\
+    Z &= \text{Nombre atòmic} = n^op^+
+\end{align}
+
+Expressem una partícula $X$ com:
+
+\begin{equation}
+    \ce{^A_ZX}
+\end{equation}
+
+Dos àtoms són el mateix element si tenen igual $Z$.
+Dos isòtops del mateix element tenen igual $Z$ però diferent $A$
+
+\subsection{Energia d'enllaç}
+\label{sub:energia_d_enllac}
+
+\begin{align}
+    \SI{1}{\amu} &= \frac{1}{12} m(\ce{^12_6C}) = \SI{931.5}{\mega\electronvolt\over\clight\squared} \\
+    \SI{1}{\electronvolt} &= \SI{1,602e-19}{\joule} \\
+    m_p &= \SI{1.0073}{\amu} \\
+    m_n &= \SI{1.0087}{\amu} 
+\end{align}
+
+\begin{equation}
+    \Delta m = \left[Zm_p + \left(A-Z\right)m_n\right] - M_{\text{nucli}}
+\end{equation}
+
+\begin{equation}
+    E_b = \Delta m c^2
+\end{equation}
+
+\subsection{Energia d'enllaç per nucleó}
+\label{sub:energia_d_enllac_per_nucleo}
+
+\begin{equation}
+    \text{Energia d'enllaç per nucleó} = \frac{E_b}{A}
+\end{equation}
+
+\subsection{Desintegració de Soddy-Fajans}
+\label{sub:desintegracio_de_soddy_fajans}
+
+$\gamma$ és energia alliberada.
+
+\subsubsection{Alfa ($\alpha$)}
+\label{ssub:alfa}
+
+\begin{align}
+    \ce{
+        {^A_ZX} -> {^{A-4}_{Z-2}Y} + ^4_2He + \gamma
+    }
+\end{align}
+
+\subsubsection{Beta positiu ($\beta ^+$)}
+\label{ssub:beta_positiu}
+
+\begin{align}
+    \ce{
+        {^A_ZX} -> {^{A}_{Z-1}Y} + ^0_{+1}e + \overline{\nu_e} + \gamma
+    }
+\end{align}
+
+\subsubsection{Beta negatiu ($\beta ^-$)}
+\label{ssub:beta_negatiu}
+
+\begin{align}
+    \ce{
+        {^A_ZX} -> {^{A}_{Z+1}Y} + ^0_{-1}e + \overline{\nu_e} + \gamma
+    }
+\end{align}
+
+\subsubsection{Gamma ($\gamma$)}
+\label{ssub:gamma}
+
+\begin{align}
+    \ce{
+        {^A_ZX^*} -> {^{A}_{Z}X} + \gamma
+    }
+\end{align}
+
+\subsection{Llei de desintegració radioactiva}
+\label{sub:llei_de_desintegracio_radioactiva}
+
+$N$ = nombre de nucleons. \\ $\lambda$ és la constant de desintegració radioactiva que depen de l'àtom.
+
+\begin{align}
+    \frac{dN}{dt} &= - \lambda N \\
+    \int_{N_0}^N \frac{dN}{dt}  = \int_0^t -\lambda dt &\rightarrow \ln \frac{N}{N_0} = -\lambda t 
+\end{align}
+
+\begin{equation}
+N(t) = N_0e^{-\lambda t}
+\end{equation}
+
+\subsection{Període de semi-desintegració}
+\label{sub:periode_de_semi_desintegracio}
+
+\begin{equation}
+T_{\frac{1}{2}} = \frac{\ln 2}{\lambda}
+\end{equation}
+
+\subsection{Vida mitja ($\tau$)}
+\label{sub:vida_mitja_tau_}
+
+\begin{equation}
+    \tau = \frac{1}{\lambda}
+\end{equation}
+
+\subsection{Reaccions nuclears}
+\label{sub:reaccions_nuclears}
+
+\subsubsection{Fissió nuclear}
+\label{ssub:fissio_nuclear}
+
+Trencament d'un nucli atòmic. Allibera energia.
+Un dels més coneguts es la fissió de l'Urani 235 que s'utilitza en les centrals
+nuclears:
+
+\begin{equation}
+    \ce{
+        ^{235}_{92}U + \frac{1}{2}{^1_0n} -> ^{141}_{56}Ba + ^{92}_{36}Kr + 3{^1_0n} + \gamma
+    }
+\end{equation}
+
+\subsubsection{Fusió nuclear}
+\label{ssub:fusio_nuclear}
+
+Unió de dos nuclis. Succeeix a les estrelles.
+
+\begin{equation}
+    \ce{
+        ^2_1H + ^3_1H -> ^4_2He + ^1_0n + \gamma
+    }
+\end{equation}
+
+\subsection{Experiment de Rutherford}
+\label{sub:experiment_de_rutherford}
+
+Experiment de la làmina d'or, en el que es bombardeja una làmina d'or amb
+partícules $\alpha$ i 1 de cada 1800 es desviaven i una de cada 10000 rebotaven
+a la làmina.  Permet calcular el radi d'un àtom sabent que aquestes partícules
+reboten i l'energia cinètica amb les que s'han llançat ( $E_c$ ):
+
+\begin{align}
+    E_c &= E_p \nonumber \\
+    E_p &= k\frac{(2e^-)(Ze^-)}{d} \rightarrow d = \frac{e^22Z}{E_c}
+\end{align}
+
+\subsection{Densitat nuclear}
+\label{sub:densitat_nuclear}
+
+\begin{align}
+    V_{\text{nucli}} &\propto A \\
+    V_{\text{nucli}} &\propto \frac{4}{3}\pi R^2 \\
+    R &\propto A^{\frac{1}{3}} \\
+    R &= R_oA^{frac{1}{3}}
+\end{align}
+
+\begin{equation}
+    R_o = \text{Radi de Fermi} = \SI{1,2e-15}{\femto\meter}
+\end{equation}
+
+\begin{equation}
+    \rho = \frac{m}{v} = \frac{Au}{\frac{4}{3}\pi r^3} = \frac{3u}{4\pi R_o^3} \approx \SI{2e17}{\kilo\gram\per\metre\cubed}
 \end{equation}
 
 \section{Unitats del SI}
@@ -1708,7 +1885,7 @@ $\Omega$ és el nombre de microestats possibles del sistema.
     \sigma &= \SI{5.670367(13)e-8}{\watt\per\metre\squared\per\kelvin\tothe{4}} & \text{(Constant de Stefan-Boltzmann)}\\
     \\
     M_\text{Terra} &= \SI{5,972e24}{\kilo\gram}\\
-    R_\text{Terra} &= \SI{6,378}{\kilo\metre}\\
+    R_\text{Terra} &= \SI{6378}{\kilo\metre}\\
     g_\text{Lluna} &= \SI{1,62}{\metre\per\second\squared}\\
     \\
     q_{p^+} &= \SI{1.602176565(35)e-19}{\coulomb}\\
@@ -1731,6 +1908,8 @@ $\Omega$ és el nombre de microestats possibles del sistema.
     \item Planetes i cossos negres (Albedo...)
     \item Energies renovables (E eòlica ...)
     \item Arreglar cinemàtica
+    \item Moviment harmònic simple i Ones
+    \item Noves constants a partir de la secció 13
 \end{enumerate}
 
 \end{document}
