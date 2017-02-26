@@ -1605,7 +1605,7 @@ a la distància a un punt d'equilibri:
     F &= -k\Delta x \\
     ma &= -k\Delta x \longrightarrow \frac{d^2x}{dt^2} + \frac{k}{m}x = 0 \nonumber \\
     x(t) &= A\cos\left(\omega t + \phi \right) \\
-    \omega \equiv \sqrt{\frac{k}{m}}
+    \omega &\equiv \sqrt{\frac{k}{m}}
 \end{align}
 
 On $\omega$ és la freqüència, $A$ l'amplitud i $\phi$ la fase.
@@ -1651,8 +1651,8 @@ Les podem classificar de dues maneres:
 
 \begin{align}
     y &= A \sin \left( \omega t - k x + \phi \right)\\
-    \omega \equiv \frac{2\pi}{T} = 2\pi \nu \\
-    k \equiv \frac{2\pi}{\lambda}
+    \omega &\equiv \frac{2\pi}{T} = 2\pi \nu \\
+    k &\equiv \frac{2\pi}{\lambda}
 \end{align}
 
 On $k$ és el nombre d'ona i $\omega$ la freqüència angular.
@@ -2161,6 +2161,93 @@ de trobar una partícula.
 Tota partícula és una ona i una partícula i conviuen els dos estats. L'estat
 defineix amb l'observació.
 
+\section{Relativitat}
+\label{sec:relativitat}
+
+L'experiment de Michael-Morley demostra que l'èter no existeix. S'ha de trobar
+una explicació per el fet que la llum es desplaci per l'espai tot i no haver-hi
+matèria.
+
+\subsection{Teoria especial de la relativitat}
+\label{sub:teoria_especial_de_la_relativitat}
+
+Basada en dos postulats:
+
+\begin{enumerate}
+    \item Totes les lleis de la física són vàlides a qualsevol sistema de
+        referència inercial.
+    \item La velocitat de la llum és constant per a tot sistema de referència
+        inercial.
+\end{enumerate}
+
+\subsubsection{Factor de Lorenz}
+\label{ssub:factor_de_lorenz}
+
+\begin{align}
+    \gamma &= \frac{1}{\sqrt{1 - \beta^2}} \\
+    \beta &= \frac{v}{c}
+\end{align}
+
+\subsubsection{Dilatació del temps}
+\label{ssub:dilatacio_del_temps}
+
+\begin{equation}
+    \Delta t' = \gamma  \Delta t
+\end{equation}
+
+\subsubsection{Dilatació de l'espai}
+\label{ssub:dilatacio_de_l_espai}
+
+\begin{equation}
+    \Delta x' = \frac{\Delta x}{\gamma}
+\end{equation}
+
+\subsubsection{Transformacions de Lorenz}
+\label{ssub:transformacions_de_lorenz}
+
+\begin{align}
+    \Delta t' &= \gamma \ \left(\Delta t + \dfrac{v \,\Delta x}{c^{2}} \right) \\
+    \Delta x' &= \gamma \ (\Delta x + v \,\Delta t) \\
+    v_x' &= \frac{v_x-v}{1-\frac{v}{c^2}v_x}
+\end{align}
+
+\subsection{Energia relativista}
+\label{sub:energia_relativista}
+
+\begin{align}
+    W = E_c &= \int F dx = \int m_0 \gamma \frac{dv}{dt}dx \\
+    &= m_0c^2(\gamma -1)
+\end{align}
+
+\subsection{Teoria general de la relativitat}
+\label{sub:teoria_general_de_la_relativitat}
+
+Els efectes gravitatoris afecten a les ones de la llum tot i no tenir massa.
+Per tant es dedueix que el camp gravitats és una deformació de l'espai-temps.
+
+\subsubsection{Principi d'equivalència}
+\label{ssub:principi_d_equivalencia}
+
+Un sistema de referència no inercial accelerat és equivalent a una sistema en
+repòs sotmès a una força gravitacional.
+
+\subsubsection{Redshift gravitacional}
+\label{ssub:redshift_gravitacional}
+
+\begin{equation}
+    \frac{\Delta \nu}{\nu_0} = \frac{g\Delta h}{c^2}
+\end{equation}
+
+\subsubsection{Forats negres}
+\label{ssub:forats_negres}
+
+Schwarzschild postula l'existència dels forats negres:
+
+\begin{equation}
+    r_s = 2\frac{GM}{c^2}
+\end{equation}
+
+$r_s$ és el radi d'Schwarzschild a partir del qual la llum no pot escapar.
 
 \section{Unitats del SI}
 \label{sec:unitats_del_si}
