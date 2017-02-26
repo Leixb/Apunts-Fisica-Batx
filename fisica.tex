@@ -1031,77 +1031,6 @@ El flux magnètic en una \textbf{superfície tancada} $S$ és
     L = \text{Coeficient d'inductància} \qquad \left[ \si{\henry} \right]
 \end{equation}
 
-\section{Moviment harmònic simple (MHS)}
-\label{sec:moviment_harm_nic_simple}
-
-Un cos segueix un moviment harmònic simple si es compleix que:
-\begin{enumerate}
-    \item La magnitud de la força (i com a conseqüent de l'acceleració)
-        és proporcional al desplaçament respecte a un punt fix.
-    \item La direcció de la força (i per tant de l'acceleració) és sempre en la
-        direcció del punt fix.
-\end{enumerate}
-Per tant:
-\begin{align}
-    a &\propto -\Delta x\\
-    a &= -k\Delta x
-\end{align}
-
-Les equacions de moviment per a un objecte que es mou seguint un moviment harmònic simple d'amplitud $A$, freqüència angular $\omega$ i fase $\phi$ amb un punt fix $x_0$són:
-
-\begin{align}
-    x(t) &= x_0 + A\sin(\phi_0+\omega t) \\
-    v(t) &= A\omega\cos(\phi_0+\omega t) \\
-    a(t) &= -A\omega^2\sin(\phi_0+\omega t)
-\end{align}
-
-El període $T$, el període angular $\omega$ i la freqüència $f$ segueixen la
-relació:
-
-\begin{align}
-    T = \frac{1}{f} = \frac{2\pi}{\omega}
-\end{align}
-
-\subsection{Posició, velocitat i acceleració màximes}
-\label{sub:posicio_velocitat_i_acceleracio_maximes}
-
-
-\begin{align}
-    x_\mathrm{max} &= x_0 + A \\
-    v_\mathrm{max} &= A\omega \\
-    a_\mathrm{max} &= A\omega^2
-\end{align}
-
-\subsection{Llei de Hooke}
-\label{sub:llei_de_hooke}
-
-La força exercida per una molla amb una constant elàstica $k$ segueix un
-moviment harmònic simple.
-
-\begin{equation}
-    F = -k\Delta x
-\end{equation}
-
-\begin{equation}
-    E_p = \frac{1}{2}k\Delta x
-\end{equation}
-
-\begin{equation}
-    \omega = \sqrt{ \frac{k}{m} }
-\end{equation}
-
-\subsection{Període d'un pèndul simple}
-\label{sub:periode_d_un_pendul_simple}
-
-El període $T$ d'un pèndul simple de longitud $\ell$ que oscil·la en graus petits \footnote{Inferiors a \SI{15}{\degree}} és:
-
-\begin{equation}
-    T=2\pi\sqrt{\frac{\ell}{g}}
-\end{equation}
-
-
-
-
 \section{Circuits elèctrics}
 \label{sec:circuits_electrics}
 
@@ -1595,20 +1524,67 @@ $\Omega$ és el nombre de microestats possibles del sistema.
     k_b =  \SI{1.38064852(79)e-23}{\joule\per\kelvin} \qquad \text{(Constant de Boltzmann)}
 \end{equation}
 
-\section{Moviment harmònic simple}
+\section{Moviment harmònic simple (MHS)}
 \label{sec:moviment_harmonic_simple}
 
-Moviment generat per una força harmònica. Una força harmònica és proporcional
-a la distància a un punt d'equilibri:
+Un cos segueix un moviment harmònic simple si es compleix que:
+\begin{enumerate}
+    \item La magnitud de la força (i com a conseqüent de l'acceleració)
+        és proporcional al desplaçament respecte a un punt fix.
+    \item La direcció de la força (i per tant de l'acceleració) és sempre en la
+        direcció del punt fix.
+\end{enumerate}
+Per tant:
+\begin{align}
+    a &\propto -\Delta x\\
+    a &= -k\Delta x
+\end{align}
+
+Les equacions de moviment per a un objecte que es mou seguint un moviment harmònic simple d'amplitud $A$, freqüència angular $\omega$ i fase $\phi$ amb un punt fix $x_0$són:
 
 \begin{align}
-    F &= -k\Delta x \\
     ma &= -k\Delta x \longrightarrow \frac{d^2x}{dt^2} + \frac{k}{m}x = 0 \nonumber \\
-    x(t) &= A\cos\left(\omega t + \phi \right) \\
+    x(t) &= x_0 + A\sin(\phi_0+\omega t) \\
+    v(t) &= A\omega\cos(\phi_0+\omega t) \\
+    a(t) &= -A\omega^2\sin(\phi_0+\omega t) \\
     \omega &\equiv \sqrt{\frac{k}{m}}
 \end{align}
 
-On $\omega$ és la freqüència, $A$ l'amplitud i $\phi$ la fase.
+El període $T$, el període angular $\omega$ i la freqüència $f$ segueixen la
+relació:
+
+\begin{align}
+    T = \frac{1}{f} = \frac{2\pi}{\omega}
+\end{align}
+
+\subsection{Posició, velocitat i acceleració màximes}
+\label{sub:posicio_velocitat_i_acceleracio_maximes}
+
+
+\begin{align}
+    x_\mathrm{max} &= x_0 + A \\
+    v_\mathrm{max} &= A\omega \\
+    a_\mathrm{max} &= A\omega^2
+\end{align}
+
+\subsection{Llei de Hooke}
+\label{sub:llei_de_hooke}
+
+La força exercida per una molla amb una constant elàstica $k$ segueix un
+moviment harmònic simple.
+
+\begin{equation}
+    F = -k\Delta x
+\end{equation}
+
+\subsection{Període d'un pèndul simple}
+\label{sub:periode_d_un_pendul_simple}
+
+El període $T$ d'un pèndul simple de longitud $\ell$ que oscil·la en graus petits \footnote{Inferiors a \SI{15}{\degree}} és:
+
+\begin{equation}
+    T=2\pi\sqrt{\frac{\ell}{g}}
+\end{equation}
 
 \subsection{Energia}
 \label{sub:energia}
@@ -1618,13 +1594,6 @@ On $\omega$ és la freqüència, $A$ l'amplitud i $\phi$ la fase.
     E_c &= \frac{1}{2}mv^2 = \frac{1}{2}mA^2\omega^2\cos^2\left(\omega t + \phi\right) \\
     E_m &= E_p + E_c = \frac{1}{2}kA^2
 \end{align}
-
-\subsection{Període d'un pèndul}
-\label{sub:periode_d_un_pendul}
-
-\begin{equation}
-    T = 2\pi\sqrt{\frac{l}{g}}
-\end{equation}
 
 \section{Ones}
 \label{sec:ones}
