@@ -1,10 +1,11 @@
 \input{preamble}
 
-
 \usetikzlibrary{decorations.pathmorphing,patterns}
 \usetikzlibrary{3d}
 \usepackage[siunitx]{circuitikz}
 \usepackage[version=4]{mhchem}
+
+\usepackage{xfrac}
 
 \let\oldsection\section
 \renewcommand\section{\clearpage\oldsection}
@@ -153,7 +154,7 @@ Inclinació en un punt P:
     \vec{F} &= m * \vec{a} \\ 
     \notag \\
     m &= \text{massa} \notag \\
-    \text{(resistència }&\text{al moviment) }\notag \\
+    \text{(resistència }&\text{al moviment) }\notag
 \end{align}
 
 \subsubsection{3a llei (acció-reacció)}
@@ -644,13 +645,6 @@ El camp elèctric d'una placa és constant i no depén de la distància.
     \frac{Q}{L} = \lambda \rightarrow Q = \lambda L \nonumber \\
     E 2\pi rL = \frac{Q}{\varepsilon_0} &\Rightarrow E = \frac{\lambda}{2\pi r\varepsilon_0}
 \end{align}
-
-
-
-
-
-
-
 
 \section{Camp magnètic}
 \label{sec:camp_magnetic}
@@ -1601,14 +1595,203 @@ $\Omega$ és el nombre de microestats possibles del sistema.
     k_b =  \SI{1.38064852(79)e-23}{\joule\per\kelvin} \qquad \text{(Constant de Boltzmann)}
 \end{equation}
 
+\section{Moviment harmònic simple}
+\label{sec:moviment_harmonic_simple}
+
+Moviment generat per una força harmònica. Una força harmònica és proporcional
+a la distància a un punt d'equilibri:
+
+\begin{align}
+    F &= -k\Delta x \\
+    ma &= -k\Delta x \longrightarrow \frac{d^2x}{dt^2} + \frac{k}{m}x = 0 \nonumber \\
+    x(t) &= A\cos\left(\omega t + \phi \right) \\
+    \omega \equiv \sqrt{\frac{k}{m}}
+\end{align}
+
+On $\omega$ és la freqüència, $A$ l'amplitud i $\phi$ la fase.
+
+\subsection{Energia}
+\label{sub:energia}
+
+\begin{align}
+    E_p = \frac{1}{2}kx^2 = \frac{1}{2}kA^2\sin^2\left(\omega t + \phi\right) \\
+    E_c &= \frac{1}{2}mv^2 = \frac{1}{2}mA^2\omega^2\cos^2\left(\omega t + \phi\right) \\
+    E_m &= E_p + E_c = \frac{1}{2}kA^2
+\end{align}
+
+\subsection{Període d'un pèndul}
+\label{sub:periode_d_un_pendul}
+
+\begin{equation}
+    T = 2\pi\sqrt{\frac{l}{g}}
+\end{equation}
+
+\section{Ones}
+\label{sec:ones}
+
+Transport d'energia sense desplaçar al matèria. Es transmet una vibració en un
+moviment harmònic simple.
+
+Les podem classificar de dues maneres:
+\begin{enumerate}
+\item Segons el medi en que es propaguen
+    \begin{enumerate}
+        \item Mecàniques: es desplacen per un medi material
+        \item Electromagnètiques: poden viatjar pel buit
+    \end{enumerate}
+\item Segons el tipus de Moviment Harmònic Simple que descriuen
+    \begin{enumerate}
+        \item Longitudinals: desplaçament para\lgem el a la vibració
+        \item Transversals: desplaçament perpendicular a la vibració
+    \end{enumerate}
+\end{enumerate}
+
+\subsection{Equació d'ones}
+\label{sub:equacio_d_ones}
+
+\begin{align}
+    y &= A \sin \left( \omega t - k x + \phi \right)\\
+    \omega \equiv \frac{2\pi}{T} = 2\pi \nu \\
+    k \equiv \frac{2\pi}{\lambda}
+\end{align}
+
+On $k$ és el nombre d'ona i $\omega$ la freqüència angular.
+
+\subsection{Qualitats del so}
+\label{sub:qualitats_del_so}
+
+El so és una ona mecànica longitudinal. Té tres qualitats:
+
+\begin{enumerate}
+    \item to
+    \item timbre
+    \item intensitat
+\end{enumerate}
+
+
+\subsubsection{Intensitat sonora}
+\label{ssub:intensitat_sonora}
+
+\begin{align}
+    \beta &= 10\log \frac{I}{I_0} \qquad [\si{\decibel}]\\
+    I_0 &\approx \SI{1e-12}{\watt\per\metre\squared}
+\end{align}
+
+$I_0$ és la intensitat llindar a partir de la qual un so ja no és audible per
+l'orella humana.
+
+\subsection{Absorció d'una ona}
+\label{sub:absorcio_d_una_ona}
+
+\begin{equation}
+    I = I_0 e^{- \beta x}
+\end{equation}
+
+On $\beta$ és el coeficient d'absorció del material travessat.
+
+\subsubsection{Espessor de semi absorció}
+\label{ssub:espessor_de_semi_absorcio}
+
+Distància tal que $I = \frac{I_0}{2}$:
+
+\begin{equation}
+    D_{\sfrac{1}{2}} = \frac{\ln 2}{\beta}
+\end{equation}
+
+\subsection{Interferència d'ones}
+\label{sub:interferencia_d_ones}
+
+Si tenim dos focus d'ona o més, aquests creen una interferència. Podem determinar
+l'equació d'ona d'un punt $p$ a través de la suma de totes les ones:
+
+\begin{equation}
+    y_p = \sum_i^n y_{pi}
+\end{equation}
+
+\subsubsection{Dues ones coherents}
+\label{ssub:dues_ones_coherents}
+
+Si tenim dues ones que són coherents \footnote{Mateixes $\lambda,A,\nu$ i $\phi$}:
+
+\begin{align}
+    y &= A_p\sin\left( \omega t -k r' \right) \\
+    r' &= \frac{r_1+r_2}{2} \\
+    A_p &= 2A\cos\left( k \frac{r_2-r_1}{2} \right)
+\end{align}
+
+A partir de la equació, podem obtenir les condicions per tal que la
+interferència sigui constructiva o destructiva:
+
+\begin{itemize}
+    \item Destructiva: $r_2-r_1 = (2n+1)\frac{\lambda}{2}$
+    \item Constructiva: $r_2 -r_1 = n\lambda$
+\end{itemize}
+
+\subsubsection{Ones estacionàries}
+\label{ssub:ones_estacionaries}
+
+\begin{align}
+    y &= A_p\sin\left( \omega t -k \frac{r_2+r_1}{2} \right) \\
+    r' &= \frac{r_1+r_2}{2} \\
+    A_p &= 2A\cos\left( kr' \right)
+\end{align}
+
+\begin{itemize}
+    \item Destructiva: $r' = (2n+1)\frac{\lambda}{4}$
+    \item Constructiva (Ventres): $r' = n\frac{\lambda}{2}$
+\end{itemize}
+
+\subsection{Ona estacionària o tub obert per dos extrems}
+\label{sub:ona_estacionaria_o_tub_obert_per_dos_extrems}
+
+\begin{equation}
+    L = \frac{\lambda}{2}n
+\end{equation}
+
+On $n$ és el nombre harmònic que comença amb 1.
+
+\subsection{Tub tancat per un extrem}
+\label{sub:tub_tancat_per_un_extrem}
+
+\begin{equation}
+    L = \frac{\lambda}{4}(2n+1)
+\end{equation}
+
+On el primer harmònic és $n=0$
+
+\subsection{Principi de Huygens}
+\label{sub:principi_de_huygens}
+
+Quan un front d'ona està en el medi cada partícula del medi es transforma en
+un punt d'emissió d'ones i el conjunt forma el nou front d'ona. Això explica el
+fenomens de la difracció
+
+\subsection{Doble escletxa de Young}
+\label{sub:doble_escletxa_de_young}
+
+\subsection{Resolució d'un sistema òptic}
+\label{sub:resolucio_d_un_sistema_optic}
+
+Criteri de Rayleigh:
+
+\begin{equation}
+    \theta > 1.22 \frac{\lambda}{a}
+\end{equation}
+
+\subsection{Efecte doppler}
+\label{sub:efecte_doppler}
+
+\begin{equation}
+    \nu_r  = \frac{c \pm v_r}{c \mp v_f}
+\end{equation}
+
 
 \section{Física nuclear}
 \label{sec:fisica_nuclear}
 
-
 \begin{align}
-    \text{Diàmetre atòmic} = \SI{1}{\angstrom} = \SI{10e-10}{\metre}
-    \text{Diàmetre del nucli atòmic} = \SI{1e-4}{\angstrom} = \SI{1e-14}{\metre}
+    \text{Diàmetre atòmic} &= \SI{1}{\angstrom} = \SI{10e-10}{\metre} \\
+    \text{Diàmetre del nucli atòmic} &= \SI{1e-4}{\angstrom} = \SI{1e-14}{\metre}
 \end{align}
 
 \begin{align}
@@ -1777,6 +1960,112 @@ reboten i l'energia cinètica amb les que s'han llançat ( $E_c$ ):
     \rho = \frac{m}{v} = \frac{Au}{\frac{4}{3}\pi r^3} = \frac{3u}{4\pi R_o^3} \approx \SI{2e17}{\kilo\gram\per\metre\cubed}
 \end{equation}
 
+La densitat d'un nucli atòmic és comparable a la d'un forat negre.
+
+\subsection{Model estàndard de partícules}
+\label{sub:model_estandard_de_particules}
+
+Hi ha 3 grups de partícules fonamentals:
+
+\begin{itemize}
+    \item Leptons
+    \item Quarks
+    \item Bosons
+\end{itemize}
+
+\subsubsection{Leptons}
+\label{ssub:leptons}
+
+\begin{itemize}
+    \item electró ($e$)
+    \item muó ($\mu$)
+    \item tauó ($\tau$)
+    \item neutrí electrònic ($\nu_e$)
+    \item neutrí mònic ($\mu^+$)
+    \item neutrí tauònic ($\tau^0$)
+\end{itemize}
+
+\begin{table}[H]
+    \centering
+    \caption{Propietats dels leptons}
+    \label{tab:propietats_dels_leptons}
+    \begin{tabular}{ccccc}
+        \toprule
+        & & & càrrega (Q) & nombre leptònic (L) \\
+        \midrule
+        $e$ & $\tau$ & $\mu$ & $-1$ & +1 \\
+        $\overline{e}$ & $\overline{\tau}$ & $\overline{\mu}$ & +1 & $-1$ \\
+        $\nu_e$ & $\nu_\tau$ & $\nu_\mu$ & 0 & +1 \\
+        $\overline{\nu_e}$ & $\overline{\nu_\tau}$ & $\overline{\nu_\mu}$ & 0 & $-1$ \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\subsubsection{Quarks}
+\label{ssub:quarks}
+
+No poden estar sols, sempre formen grups. Anomenem als grups de Quarks Hadrons.
+
+\begin{itemize}
+    \item up ($u$) 
+    \item charm ($c$) 
+    \item top ($t$) 
+    \item down ($d$)
+    \item strange ($s$)
+    \item bottom ($b$)
+\end{itemize}
+
+\begin{table}[H]
+    \centering
+    \caption{Quarks}
+    \label{tab:quarks}
+    \begin{tabular}{cccc}
+        \toprule
+        & & & càrrega (Q) \\
+        \midrule
+        $u$ & $c$ & $t$ & $\sfrac{2}{3}$ \\
+        $d$ & $s$ & $b$ & $-\sfrac{1}{3}$  \\
+        $\overline{u}$ & $\overline{c}$ & $\overline{t}$ & $-\sfrac{2}{3}$  \\
+        $\overline{d}$ & $\overline{s}$ & $\overline{b}$ & $\sfrac{1}{3}$ \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+El quark strange ($s$) té el nombre d'Extranyessa $S$ què és $-1$ per el 
+quark $s$ i  $+1$ per l'antiquark $\overline{s}$.
+
+\subsubsection{Hadrons}
+\label{ssub:hadrons}
+
+Hi ha dos tipus:
+
+\begin{itemize}
+    \item Mesons (2 quarks)
+    \item Barions (3 quarks)
+\end{itemize}
+
+Els quarks que formen un barió tenen nombre bariònic: $\sfrac{1}{3}$ pels quarks
+i $\-\sfrac{1}{3}$ pels antiquarks.
+
+\subsubsection{Teoria del confinament}
+\label{ssub:teoria_del_confinament}
+
+\begin{itemize}
+    \item Els quarks s'intercanvien gluons (força forta)
+    \item Els hadrons són sensibles tant a la força forta com a la dèbil
+    \item Els leptons no són sensibles a la força forta però si a la dèbil
+    \item El nombre bariònic, el leptònic, l'estrange i la càrrega sempre es
+    conserven
+\end{itemize}
+
+\subsubsection{Diagrames de Feynman}
+\label{ssub:diagrames_de_feynman}
+
+Representació visual de d'interacció entre partícules. Eixos temps i espai.
+Les partícules són fletxes. Les antipartícules en direcció oposada. Les
+interaccions es representen amb línies discontinues si són partícules o amb una
+ona si és una radiació.
+
 \section{Unitats del SI}
 \label{sec:unitats_del_si}
 
@@ -1913,3 +2202,5 @@ reboten i l'energia cinètica amb les que s'han llançat ( $E_c$ ):
 \end{enumerate}
 
 \end{document}
+
+% vim: spell spelllang=ca
