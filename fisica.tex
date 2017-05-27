@@ -4,6 +4,15 @@
 \usetikzlibrary{3d}
 \usepackage[siunitx]{circuitikz}
 \usepackage[version=4]{mhchem}
+\usepackage{xwatermark}
+\usepackage{tikz-feynman}
+
+\newsavebox\madeby
+\savebox\madeby{\tikz[color=black!50,opacity=0.2]\node{Created by Leix\_b};}
+\newsavebox\distribute
+\savebox\distribute{\tikz[color=black!50,opacity=0.2]\node{Do not distribute};}
+\newwatermark*[allpages,color=black!20,angle=60,scale=6,xpos=-20,ypos=15]{\usebox\distribute}
+\newwatermark*[allpages,color=black!20,angle=60,scale=6,xpos=-40,ypos=25]{\usebox\madeby}
 
 \usepackage{xfrac}
 
@@ -91,24 +100,24 @@
 \subsection{Moviment Rectilini Uniforme (MRU)}
 \begin{align}\label{equ:Vel. MRU}
     v &= ctt \notag \\
-    v &= \frac{d \vec{r}}{d t} &\rightarrow \int_{r_0}^r dr &= \int_{t_0}^t v * dt \notag \\
+    v &= \frac{d \vec{r}}{d t} &\rightarrow \int_{r_0}^r dr &= \int_{t_0}^t v  dt \notag \\
     && v \int_0^t dt &= r \bigg |_{r_0}^r \notag\\
-    r &= r_0 + v*t 
+    r &= r_0 + vt 
 \end{align}
 
 \subsection{Moviment Rectilini Uniformement Accelerat (MRUA)}
 \begin{align}\label{equ:Vel. MRUA}
     a &= ctt \notag \\
-    a &= \frac{d \vec{v}}{d t} &\rightarrow \int_{v_0}^v dv &= \int_{t_0}^t a * dt \notag \\
+    a &= \frac{d \vec{v}}{d t} &\rightarrow \int_{v_0}^v dv &= \int_{t_0}^t a  dt \notag \\
     && a \int_0^t dt &= v \bigg |_{v_0}^v \notag\\
-    v &= v_0 + a*t 
+    v &= v_0 + at 
 \end{align}
 
 \begin{align}\label{equ:Pos. MRUA}
-    v &= v_0 + a*t  \notag \\
-    v &= \frac{d \vec{r}}{d t} &\rightarrow \int_{r_0}^r dr &= \int_{t_0}^t v_0 + a*t * dt \notag \\
-    && v_0 \int_0^t dt + \int_0^t a*t*dt &= r \bigg |_{r_0}^r \notag\\
-    r - r_0 &= v_0*t+\frac{1}{2}at^2 
+    v &= v_0 + at  \notag \\
+    v &= \frac{d \vec{r}}{d t} &\rightarrow \int_{r_0}^r dr &= \int_{t_0}^t v_0 + at  dt \notag \\
+    && v_0 \int_0^t dt + \int_0^t atdt &= r \bigg |_{r_0}^r \notag\\
+    r - r_0 &= v_0t+\frac{1}{2}at^2 
 \end{align}
 
 \subsection{Tir Parabòlic}
@@ -116,7 +125,7 @@
     \vec{r} &= X(t)i & + Y(t)j \notag \\
     & MRU &  MRUA \notag \\
     & \downarrow  & \downarrow \notag \\
-    \vec{r} &= (x_0+v_0*\cos(\theta)) \ihat & + (y_0 + v_0*\sin(\theta)*t - \frac{1}{2}gt^2) \jhat
+    \vec{r} &= (x_0+v_0\cos(\theta)) \ihat & + (y_0 + v_0\sin(\theta)t - \frac{1}{2}gt^2) \jhat
 \end{align}
 
 Inclinació en un punt P:
@@ -132,10 +141,10 @@ Inclinació en un punt P:
     \omega &= \text{velocitat angular} &= \frac{\Delta \phi}{\Delta t} \\
     \alpha &= \text{acceleració angular} &= \frac{\Delta \omega}{\Delta t} \\
     T &= \text{període} &= \frac{2\pi}{\omega} \\
-    v &= \omega * R \\
+    v &= \omega  R \\
     \vec{a} &= \vec{a_c} + \vec{a_t} \\
-    \vec{a_t} &= \alpha * R \\
-    \vec{a_c} &= \omega^2*R &= \frac{v^2}{R}
+    \vec{a_t} &= \alpha  R \\
+    \vec{a_c} &= \omega^2R &= \frac{v^2}{R}
 \end{align*}
 
 \section{Dinàmica}
@@ -151,7 +160,7 @@ Inclinació en un punt P:
 \begin{align}
     \sum \vec{F}\ &\alpha\ \vec{a} \notag \\
     \downarrow & \notag \\
-    \vec{F} &= m * \vec{a} \\ 
+    \vec{F} &= m  \vec{a} \\ 
     \notag \\
     m &= \text{massa} \notag \\
     \text{(resistència }&\text{al moviment) }\notag
@@ -166,7 +175,7 @@ Inclinació en un punt P:
 \subsection{Força de fricció}
 
 \begin{equation}
-    \vec{F}_r = \mu * N
+    \vec{F}_r = \mu  N
 \end{equation}
 Hi ha dos tipus de coeficients de fricció ($\mu$):
 \begin{itemize}
@@ -185,7 +194,7 @@ Una politja d'on hi pengen dues masses. Si $m_1 > m_2$:
 \section{Treball i energia}
 
 \begin{align}
-    W &= \vec{F}*\Delta \vec{r} = F * \Delta r * cos\theta \\
+    W &= \vec{F}\Delta \vec{r} = F  \Delta r  cos\theta \\
     W &= \int \vec{F}dx \\
     W &= \Delta E_c \text{ (teorema treball-energia)} \\
     W &= \tau \theta
@@ -545,7 +554,7 @@ El moment d'inèrcia d'un eix desplaçat $d$ unitats del centre de masses es:
     de l'energia electrostàtica entre totes les càrregues:
 
     \begin{equation}
-        U_T = \mathlarger{\sum_{i=1}^n} \sum_{j=1}^n U_{ji}
+        U_T = \mathlarger{\sum_{i=1}^n} \sum_{j=i+1}^n U_{ji}
     \end{equation}
 
     El treball és igual a menys la variació d'energia electrostàtica:
@@ -794,6 +803,7 @@ un sobre l'altre degut als camp magnètic que formen.
     \frac{F}{\ell} = \frac{\mu_0}{2\pi} \frac{I_1 I_2}{d}
 \end{equation}
 
+\pagebreak
 
 \subsection{Camp magnètic d'una espira}
 \label{sub:camp_magnetic_d_una_espira}
@@ -982,6 +992,8 @@ En un interval de temps discret:
 \begin{equation}
     \varepsilon = -N \frac{\Delta \Phi}{\Delta t}
 \end{equation}
+
+\pagebreak
 
 \subsection{Llei de Gauss per a un camp magnètic}
 \label{sub:llei_de_gauss_per_a_un_camp_magnetic}
@@ -1476,8 +1488,8 @@ El procés es produeix a \textbf{temperatura} constant.
     Q = W &= nRT\ln\frac{V_B}{V_A}
 \end{align}
 
-\subsection{Isocor}
-\label{sub:isocor}
+\subsection{Isocòric}
+\label{sub:isocoric}
 El procés es produeix a \textbf{volum} constant.
 
 \begin{align}
@@ -1494,7 +1506,7 @@ O isentròpic, el procés es produeix sense intercanvi de calor ($Q=0$).
 \begin{align}
     Q &= 0\nonumber\\
     W &= -\Delta U \\
-    P*V^\gamma &= ctt \\
+    PV^\gamma &= ctt \\
     \frac{T}{V^{\gamma + 1}} &= ctt \\
     \gamma &= \frac{2}{3} \nonumber
 \end{align}
@@ -1648,6 +1660,8 @@ El so és una ona mecànica longitudinal. Té tres qualitats:
 
 $I_0$ és la intensitat llindar a partir de la qual un so ja no és audible per
 l'orella humana.
+
+\pagebreak
 
 \subsection{Absorció d'una ona}
 \label{sub:absorcio_d_una_ona}
@@ -1918,7 +1932,7 @@ reboten i l'energia cinètica amb les que s'han llançat ( $E_c$ ):
     V_{\text{nucli}} &\propto A \\
     V_{\text{nucli}} &\propto \frac{4}{3}\pi R^2 \\
     R &\propto A^{\frac{1}{3}} \\
-    R &= R_oA^{frac{1}{3}}
+    R &= R_oA^{\frac{1}{3}}
 \end{align}
 
 \begin{equation}
@@ -2014,7 +2028,7 @@ Hi ha dos tipus:
 \end{itemize}
 
 Els quarks que formen un barió tenen nombre bariònic: $\sfrac{1}{3}$ pels quarks
-i $\-\sfrac{1}{3}$ pels antiquarks.
+i $-\sfrac{1}{3}$ pels antiquarks.
 
 \subsubsection{Teoria del confinament}
 \label{ssub:teoria_del_confinament}
@@ -2034,6 +2048,26 @@ Representació visual de d'interacció entre partícules. Eixos temps i espai.
 Les partícules són fletxes. Les antipartícules en direcció oposada. Les
 interaccions es representen amb línies discontinues si són partícules o amb una
 ona si és una radiació.
+
+\begin{center}
+    \begin{tikzpicture}
+  \begin{feynman}
+    \vertex (a) {\(\mu^{-}\)};
+    \vertex [right=of a] (b);
+    \vertex [above right=of b] (f1) {\(\nu_{\mu}\)};
+    \vertex [below right=of b] (c);
+    \vertex [above right=of c] (f2) {\(\overline \nu_{e}\)};
+    \vertex [below right=of c] (f3) {\(e^{-}\)};
+ 
+    \diagram* {
+      (a) -- [fermion] (b) -- [fermion] (f1),
+      (b) -- [boson, edge label'=\(W^{-}\)] (c),
+      (c) -- [anti fermion] (f2),
+      (c) -- [fermion] (f3),
+    };
+  \end{feynman}
+    \end{tikzpicture}
+\end{center}
 
 \section{Física Quàntica}
 \label{sec:fisica_quantica}
@@ -2088,6 +2122,8 @@ Totes les partícules es comporten com a ones segons la equació:
     \lambda = \frac{h}{p} = \frac{h}{mv}
 \end{equation}
 
+\pagebreak
+
 \subsection{Model atòmic de Bohr}
 \label{sub:model_atomic_de_bohr}
 
@@ -2101,9 +2137,9 @@ Es basa en 3 postulats:
 \end{itemize}
 
 \begin{align}
+    \frac{1}{\lambda}&=R \left( \frac{1}{n_f^2} - \frac{1}{n_i^2} \right) \\
     \Delta E &= h\nu \\
-    L &= n \frac{h}{2\pi} = n\hslash \\
-    \frac{1}{\lambda}&=R \left( \frac{1}{n_f^2} - \frac{1}{n_i^2} \right)
+    L &= n \frac{h}{2\pi} = n\hslash
 \end{align}
 
 \subsection{Schrödinger}
@@ -2187,6 +2223,8 @@ Basada en dos postulats:
     W = E_c &= \int F dx = \int m_0 \gamma \frac{dv}{dt}dx \\
     &= m_0c^2(\gamma -1)
 \end{align}
+
+\pagebreak
 
 \subsection{Teoria general de la relativitat}
 \label{sub:teoria_general_de_la_relativitat}
@@ -2324,10 +2362,12 @@ $r_s$ és el radi d'Schwarzschild a partir del qual la llum no pot escapar.
     h &= \SI{6.626070040(81)e-34}{\joule\second} &\text{(Constant de Planck)}\\
     \mathrm{Na} &= \SI{6.022140857(74)e23}{\per\mol} &\text{(Nombre d'Avogadro)}\\
     \sigma &= \SI{5.670367(13)e-8}{\watt\per\metre\squared\per\kelvin\tothe{4}} & \text{(Constant de Stefan-Boltzmann)}\\
+    I_0 &\approx \SI{1e-12}{\watt\per\metre\squared} & \text{(Intensitat llindar)} \\
+    b &= \SI{2.8977729(17)e-3}{\kelvin\metre} & \text{(Constant de Wien)}\\
     \\
-    M_\text{Terra} &= \SI{5,972e24}{\kilo\gram}\\
-    R_\text{Terra} &= \SI{6378}{\kilo\metre}\\
-    g_\text{Lluna} &= \SI{1,62}{\metre\per\second\squared}\\
+    M_\text{Terra} &= \SI{5,9722(6)e24}{\kilo\gram}\\
+    R_\text{Terra} &\approx \SI{6378}{\kilo\metre}\\
+    g_\text{Lluna} &= \SI{1,625}{\metre\per\second\squared}\\
     \\
     q_{p^+} &= \SI{1.602176565(35)e-19}{\coulomb}\\
     m_{p^+} &= \SI{1,672621637(83)e-27}{\kilo\gram}\\
@@ -2342,15 +2382,14 @@ $r_s$ és el radi d'Schwarzschild a partir del qual la llum no pot escapar.
 \end{align*}
 \footnotetext{A la superfície de la Terra a nivell de mar}
 
-\paragraph{TODO:}
-\label{sec:todo}
+%\paragraph{TODO:}
+%\label{sec:todo}
 
-\begin{enumerate}
-    \item Planetes i cossos negres (Albedo...)
-    \item Energies renovables (E eòlica ...)
-    \item Arreglar cinemàtica
-    \item Noves constants a partir de la secció 13
-\end{enumerate}
+%\begin{enumerate}
+    %\item Planetes i cossos negres (Albedo...)
+    %\item Energies renovables (E eòlica ...)
+    %\item Arreglar cinemàtica
+%\end{enumerate}
 
 \end{document}
 
