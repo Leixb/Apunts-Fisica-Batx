@@ -115,36 +115,36 @@
 
 \begin{align}\label{equ:Pos. MRUA}
     v &= v_0 + at  \notag \\
-    v &= \frac{d \vec{r}}{d t} &\rightarrow \int_{r_0}^r dr &= \int_{t_0}^t v_0 + at  dt \notag \\
-    && v_0 \int_0^t dt + \int_0^t atdt &= r \bigg |_{r_0}^r \notag\\
+    v &= \frac{d \vec{r}}{d t} &\rightarrow \int_{r_0}^r dr &= \int_{t_0}^t v_0 + at \, dt \notag \\
+    && v_0 \int_0^t dt + \int_0^t at\, dt &= r \bigg |_{r_0}^r \notag\\
     r - r_0 &= v_0t+\frac{1}{2}at^2 
 \end{align}
 
 \subsection{Tir Parabòlic}
 \begin{align}\label{Tir Parabolic}
-    \vec{r} &= X(t)i & + Y(t)j \notag \\
+    \vec{r} &= X(t)\ihat & + Y(t)\jhat \notag \\
     & MRU &  MRUA \notag \\
     & \downarrow  & \downarrow \notag \\
-    \vec{r} &= (x_0+v_0\cos(\theta)) \ihat & + (y_0 + v_0\sin(\theta)t - \frac{1}{2}gt^2) \jhat
+    \vec{r} &= \left(x_0+v_0\cos\theta t \right) \ihat & + \left( y_0 + v_0\sin\theta t - \frac{1}{2}gt^2\right) \jhat
 \end{align}
 
 Inclinació en un punt P:
 \begin{equation}\label{eqi:Inclinacio tir parabolic}
-    \beta = tan^{-1}\bigg(\bigg|\frac{V_Py}{V_Px}\bigg|\bigg)
+    \beta = tan^{-1}\bigg(\bigg|\frac{v_{Py}}{v_{Px}}\bigg|\bigg)
 \end{equation}
 
 \subsection{Moviment Circular}
 \begin{align*}
     R &= \text{radi} &= ctt \\
-    \phi &= \text{angle} \\
-    \omega &= \text{velocitat angular} &= \frac{\Delta \phi}{\Delta t} \\
-    \omega &= \text{velocitat angular} &= \frac{\Delta \phi}{\Delta t} \\
-    \alpha &= \text{acceleració angular} &= \frac{\Delta \omega}{\Delta t} \\
-    T &= \text{període} &= \frac{2\pi}{\omega} \\
-    v &= \omega  R \\
-    \vec{a} &= \vec{a_c} + \vec{a_t} \\
-    \vec{a_t} &= \alpha  R \\
-    \vec{a_c} &= \omega^2R &= \frac{v^2}{R}
+    \phi &= \text{angle} &= \phi_0 + \omega_0 t + \frac{1}{2} \alpha t^2 \\
+    \omega &= \text{velocitat angular} &= \frac{d\phi}{dt} = \frac{\Delta \phi}{\Delta t} = \omega_0 + \alpha t \\
+    \alpha &= \text{acceleració angular} &= \frac{d\omega}{dt} = \frac{\Delta \omega}{\Delta t} \\
+    \nu &= \text{freqüència} \\
+    T &= \text{període} &= \frac{2\pi}{\omega} = \frac{1}{\nu}\\
+    v &= \text{velocitat tangencial} &= \omega  R \\
+    \vec{a} &= \text{acceleració total} &= \vec{a_c} + \vec{a_t} \\
+    \vec{a_t} &= \text{acceleració tangencial} &= \alpha  R \\
+    \vec{a_c} &= \text{acceleració centrípeta} &= \omega^2R = \frac{v^2}{R}
 \end{align*}
 
 \section{Dinàmica}
@@ -380,14 +380,14 @@ El moment d'inèrcia d'un eix desplaçat $d$ unitats del centre de masses es:
     \label{sub:velocitat_orbital}
 
     \begin{equation}
-        V = \sqrt{\frac{GM}{r}}
+        v = \sqrt{\frac{GM}{r}}
     \end{equation}
 
     \subsection{Velocitat d'escapament}
     \label{sub:velocitat_d_escapament}
 
     \begin{equation}
-        \sqrt{2G\frac{M}{r}} = \sqrt{2}V_\text{orbital}
+        \sqrt{2G\frac{M}{r}} = \sqrt{2}v_\text{orbital}
     \end{equation}
 
     \subsection{Potencial gravitatori}
@@ -1562,11 +1562,11 @@ Les equacions de moviment per a un objecte que es mou seguint un moviment harmò
     \omega &\equiv \sqrt{\frac{k}{m}}
 \end{align}
 
-El període $T$, el període angular $\omega$ i la freqüència $f$ segueixen la
+El període $T$, el període angular $\omega$ i la freqüència $\nu$ segueixen la
 relació:
 
 \begin{align}
-    T = \frac{1}{f} = \frac{2\pi}{\omega}
+    T = \frac{1}{\nu} = \frac{2\pi}{\omega}
 \end{align}
 
 \subsection{Posició, velocitat i acceleració màximes}
@@ -1767,7 +1767,6 @@ Criteri de Rayleigh:
 \begin{equation}
     \nu_r  = \frac{c \pm v_r}{c \mp v_f}
 \end{equation}
-
 
 \section{Física nuclear}
 \label{sec:fisica_nuclear}
