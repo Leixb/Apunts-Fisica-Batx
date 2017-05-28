@@ -98,6 +98,8 @@
 \end{align}
 
 \subsection{Moviment Rectilini Uniforme (MRU)}
+\label{sub:moviment_rectilini_uniforme}
+
 \begin{align}\label{equ:Vel. MRU}
     v &= ctt \notag \\
     v &= \frac{d \vec{r}}{d t} &\rightarrow \int_{r_0}^r dr &= \int_{t_0}^t v  dt \notag \\
@@ -121,6 +123,8 @@
 \end{align}
 
 \subsection{Tir Parabòlic}
+\label{sub:tir_parabolic}
+
 \begin{align}\label{Tir Parabolic}
     \vec{r} &= X(t)\ihat & + Y(t)\jhat \notag \\
     & MRU &  MRUA \notag \\
@@ -134,6 +138,8 @@ Inclinació en un punt P:
 \end{equation}
 
 \subsection{Moviment Circular}
+\label{sub:moviment_circular}
+
 \begin{align*}
     R &= \text{radi} &= ctt \\
     \phi &= \text{angle} &= \phi_0 + \omega_0 t + \frac{1}{2} \alpha t^2 \\
@@ -153,14 +159,20 @@ Inclinació en un punt P:
 \label{sec:dinamica}
 
 \subsection{Lleis de Newton}
+\label{sub:lleis_de_newton}
+
 \subsubsection{1a llei (inèrcia)}
+\label{ssub:1a_llei}
+
 \begin{center}
     Si $\sum \vec{F} = 0 \Rightarrow$ objecte en MRU o repòs.
 \end{center}
 
 \subsubsection{2a llei (fonamental)}
+\label{ssub:2a_llei}
+
 \begin{align}
-    \sum \vec{F}\ &\alpha\ \vec{a} \notag \\
+    \sum \vec{F}\ &\propto\ \vec{a} \notag \\
     \downarrow & \notag \\
     \vec{F} &= m  \vec{a} \\ 
     \notag \\
@@ -169,12 +181,15 @@ Inclinació en un punt P:
 \end{align}
 
 \subsubsection{3a llei (acció-reacció)}
+\label{ssub:3a_llei}
+
 \begin{align*}
     \vec{F}_{a \rightarrow b} &= -\vec{F}_{b \rightarrow a} \\
     |F_{a \rightarrow b}| &= |F_{b \rightarrow a}|
 \end{align*}
 
 \subsection{Força de fricció}
+\label{sub:forca_de_friccio}
 
 \begin{equation}
     \vec{F}_r = \mu  N
@@ -184,25 +199,29 @@ Hi ha dos tipus de coeficients de fricció ($\mu$):
     \item $\mu _e = $ coeficient de fricció estàtic (quan el cos està en repòs)
     \item $\mu _d = $ coeficient de fricció dinàmic (quan el cos està en moviment)
 \end{itemize}
-La fricció sempre va en sentit contrari al moviment.
-
+La força de fricció sempre va en sentit oposat al moviment.
 
 \subsection{La màquina d'Atwood}
-Una politja d'on hi pengen dues masses. Si $m_1 > m_2$:
+\label{sub:la_maquina_dAtwood}
+
+Una politja de la qual pengen dues masses $m_1 > m_2$:
 \begin{equation}
     a = g\frac{m_1-m_2}{m_1+m_2}
 \end{equation} 
 
 \section{Treball i energia}
+\label{sec:treball_i_energia}
 
 \begin{align}
-    W &= \vec{F}\Delta \vec{r} = F  \Delta r  cos\theta \\
     W &= \int \vec{F}dx \\
-    W &= \Delta E_c \text{ (teorema treball-energia)} \\
-    W &= \tau \theta
+    W &= \vec{F}\Delta \vec{r} = F  \Delta r  cos\theta \\
+    W &= \Delta E_c \qquad \text{ (teorema treball-energia)} \\
+    W &= \int \tau d\theta
 \end{align}
 
 \subsection{Forces Conservatives}
+\label{sub:forces_conservatives}
+
 $\vec{F}$ és conservativa si:
 \begin{align*}
     \oint \vec{F}d\vec{r} &= 0 \\
@@ -216,23 +235,32 @@ $\vec{F}$ és conservativa si:
 
 \begin{align}
     W_{NC} &= \Delta E_M \\
-    E_M &= E_P + E_c
+    E_M &= E_P + E_C
 \end{align}
 
 \subsection{Conservació de l'energia}
+\label{sub:conservacio_de_l_energia}
+
 Si l'una força $\vec{F}$ és conservativa, té associada una energia potencial $U$:
 \begin{equation}
     U = - \int \vec{F} dx 
 \end{equation}
+
 \subsection{Potència}
+\label{sub:potencia}
+
 \begin{equation}
-    P = \frac{\Delta E}{\Delta t} \qquad \left[  \si{\watt} =\si{\joule\per\second} = \si{\kilo\gram\metre\squared\per\second\cubed}\right]
+    P = \frac{W}{\Delta t} \qquad \left[  \si{\watt} =\si{\joule\per\second} = \si{\kilo\gram\metre\squared\per\second\cubed}\right]
 \end{equation}
 
 \section{Xocs}
+\label{sec:xocs}
+
 Hi ha dos tipus de xocs, els elàstics i els inelàstics:
 
 \subsection{Impuls}
+\label{sub:impuls}
+
 \begin{equation}
     \vec{I} = \vec{F}\Delta t = m \vec{a} \Delta t = m \Delta \vec{v} = \Delta \vec{p}
 \end{equation}
@@ -242,34 +270,47 @@ Hi ha dos tipus de xocs, els elàstics i els inelàstics:
 \end{equation}
 
 \subsection{Inelàstics}
+\label{sub:inelastics}
+
 Son xocs irreals en el que es conserva l'energia:
 \begin{align}
     \Delta E &= 0 \\
     \Delta \vec{p} &= 0
 \end{align}
 
-
-
 \subsection{Elàstics}
+\label{sub:elastics}
+
 Son xocs en els que no es conserva l'energia degut a la pèrdua d'energia en forma de calor, soroll, deformació del material...
+
 \begin{align}
     \Delta E &\neq 0 \qquad \rightarrow E_f = E_i - E_\text{perduda}\\
     \Delta \vec{p} &= 0
 \end{align}
 
 \subsection{Coeficient de restitució}
+\label{sub:coeficient_de_restitucio}
+
 Modela la pèrdua d'energia en un xoc inelàstic:
+
 \begin{equation}
     E_\text{perduda} = \frac{v_{f1}-v_{f2}}{v_{i1}-v_{i2}}
 \end{equation}
 
 \section{Dinàmica de rotació}
+\label{sec:dinamica_de_rotacio}
+
 \subsection{Moment}
+\label{sub:moment}
+
 Si tenim una força $\vec{F}$ que actua sobre un cos a una distància del centre de masses definida pel vector $\vec{r}$, el moment que genera aquesta força es:
+
 \begin{equation}
     \vec{\tau} = \vec{r} \times \vec{F}
 \end{equation}
+
 On $\times$ és el producte vectorial i per tant:
+
 \begin{equation}
     \vec{\tau} \perp \vec{r}\ \&\ \vec{F}
 \end{equation}
@@ -289,8 +330,8 @@ On $\times$ és el producte vectorial i per tant:
     \end{tikzpicture}
 \end{center}
 
-
 Utilitzarem el símbol $\odot$ per denotar que $\vec{\tau}$ va \emph{cap a fora} i el símbol $\times$ per denotar que va \emph{cap a dins}
+
 \begin{align}
     |\vec{\tau}| &= |\vec{r}||\vec{F}|\sin \theta \\
     &= m\vec{a}\vec{r} = m r^2 \alpha \quad \text{si $\theta = \pi$}\\
@@ -298,32 +339,45 @@ Utilitzarem el símbol $\odot$ per denotar que $\vec{\tau}$ va \emph{cap a fora}
 \end{align}
 
 \paragraph{Moment d'inèrcia}
+
 \begin{align}
     I &\equiv \sum m_i r_i^2 \\
     I &= \int r^2 dm
 \end{align}
+
 Per a un cilindre massís:
+
 \begin{equation}
     I = \frac{1}{2}mr^2
 \end{equation}
 
 \subsection{Energia de rotació}
+\label{sub:energia_de_rotacio}
+
 \begin{equation}
     E_r = \frac{1}{2}\omega^2I
 \end{equation}
+
 En general, l'energia cinètica es:
+
 \begin{equation}
     E_c = E_{c1} + E_r = \frac{1}{2} m v^2 + \frac{1}{2}I\omega^2
 \end{equation}
 
 \subsection{Rodament amb desplaçament}
+\label{sub:rodament_amb_desplacament}
+
 Si una esfera roda es compleix que:
+
 \begin{equation}
     v_{cm} = \omega R
 \end{equation}
+
 Si $v_{cm} > \omega R$, l'esfera llisca.
 
 \subsection{Moment angular(L)}
+\label{sub:moment_angular}
+
 \begin{equation}
     \vec{L} = \vec{r} \times \vec{p}
 \end{equation}
@@ -334,7 +388,10 @@ Si $v_{cm} > \omega R$, l'esfera llisca.
 \end{align}
 
 \subsubsection{Teorema de Steiner}
+\label{ssub:teorema_de_Steiner}
+
 El moment d'inèrcia d'un eix desplaçat $d$ unitats del centre de masses es:
+
 \begin{equation}
     I_d = I_{cm} + m d^2
 \end{equation}
@@ -344,6 +401,7 @@ El moment d'inèrcia d'un eix desplaçat $d$ unitats del centre de masses es:
 
 \subsection{Llei de la gravitació universal de Newton}
 \label{sub:llei_de_la_gravitacio_universal}
+
 \begin{equation} \label{eq:gravitacio_universal}
     \vec{F}_{AB} = -G\frac{m_Am_B}{r^2} \hat{u}_r
 \end{equation}
@@ -577,7 +635,7 @@ El moment d'inèrcia d'un eix desplaçat $d$ unitats del centre de masses es:
     \end{equation}
 
     \subsubsection{Relació entre E i V}
-    \label{ssub:relaci_entre_e_i_v}
+    \label{ssub:relacio_entre_e_i_v}
 
     \begin{equation}
         \vec{E} = - \vec{\nabla} V = - \frac{dV}{dr} \hat{u}_r
@@ -1076,7 +1134,7 @@ hi ha $n$ partícules per metre cúbic es relaciona amb la intensitat:
 \subsection{Efecte Joule}
 \label{sub:efecte_joule}
 
-La potència dissipada per l'efecte Joule ve determinada per:
+L'energia dissipada per l'efecte Joule ($Q$) ve determinada per:
 
 \begin{equation}
     P = RI^2 = VI \qquad \left[ \si{\watt} =\si{\joule\per\second} = \si{\kilo\gram\metre\squared\per\second\cubed}\right]
@@ -1085,6 +1143,8 @@ La potència dissipada per l'efecte Joule ve determinada per:
 \begin{equation}
     Q = Pt \qquad \left[\si{\joule} = \si{\newton\metre} = \si{\kilo\gram\metre\squared\per\second\squared} \right]
 \end{equation}
+
+\pagebreak
 
 \subsection{Resistències}
 \label{sub:resistencies}
@@ -1109,9 +1169,10 @@ elèctrica $\rho$ \footnote{\emph{rho}} [\si{\ohm\metre}] és:
     \end{circuitikz}
 \end{center}
 
-\begin{equation}\label{eq:resist_series}
-    R_T = \sum_{i=1}^n R_i \qquad I_T = I_i \quad \forall\; i\; \exists \{1,\dots,n\}
-\end{equation}
+\begin{align}\label{eq:resist_series}
+    R_T &= \sum_{i=1}^n R_i \\
+    I_T &= I_i \quad \forall\; i\; \exists \{1,\dots,n\}
+\end{align}
 
 
 \subsubsection{En paral·lel}
@@ -1141,9 +1202,12 @@ elèctrica $\rho$ \footnote{\emph{rho}} [\si{\ohm\metre}] és:
     \end{circuitikz}
 \end{center}
 
-\begin{equation}\label{eq:resist_paralel}
-    \frac{1}{R_T} = \sum_{i=1}^n \frac{1}{R_i} \qquad I_T = \sum_{i=1}^n I_i
-\end{equation}
+\begin{align}\label{eq:resist_paralel}
+    \frac{1}{R_T} &= \sum_{i=1}^n \frac{1}{R_i} \\
+    I_T &= \sum_{i=1}^n I_i
+\end{align}
+
+\pagebreak
 
 \subsection{Condensadors}
 \label{sub:condensadors}
@@ -1159,7 +1223,30 @@ elèctrica $\rho$ \footnote{\emph{rho}} [\si{\ohm\metre}] és:
     U = \frac{1}{2}QV
 \end{equation}
 
+\begin{multicols}{2}
 
+\subsubsection{Càrrega d'un condensador}
+\label{ssub:carrega_d_un_condensador}
+
+\begin{align}
+    \tau &= RC \\
+    I &= \frac{V_0}{R}e^{\frac{-t}{\tau}} \\
+    V &= V_0\left(1 - e^{\frac{-t}{\tau}}\right) \\
+    Q &= CV_0\left(1 - e^{\frac{-t}{\tau}}\right)
+\end{align}
+
+\columnbreak
+
+\subsubsection{Descàrrega d'un condensador}
+\label{ssub:descarrega_d_un_condensador}
+
+\begin{align}
+    I &= \frac{V_{Ci}}{R}e^{\frac{-t}{\tau}} \\
+    V &= V_{Ci} e^{\frac{-t}{\tau}}\\
+    Q &= CV_{Ci} e^{\frac{-t}{\tau}}
+\end{align}
+
+\end{multicols}
 
 \subsubsection{En sèrie}
 \label{ssub:en_serie_c}
@@ -1208,6 +1295,8 @@ elèctrica $\rho$ \footnote{\emph{rho}} [\si{\ohm\metre}] és:
     \end{circuitikz}
 \end{center}
 
+\pagebreak
+
 \subsection{Teorema de Kirchoff}
 \label{sub:teorema_de_kirchoff}
 
@@ -1216,13 +1305,10 @@ elèctrica $\rho$ \footnote{\emph{rho}} [\si{\ohm\metre}] és:
 
 En un nus com el que es mostra a la figura \ref{fig:nus}, es compleix que\footnote{S'ha de tenir en compte el sentit tant de les intensitats com del voltatge}:
 
-\begin{equation}
-    \sum I = 0
-\end{equation}
-
-\begin{equation}
-    \sum I_\text{entrants} = \sum I_\text{sortints}
-\end{equation}
+\begin{align}
+    \sum I &= 0 \\
+    \sum I_\text{entrants} &= \sum I_\text{sortints}
+\end{align}
 
 \begin{figure}[H]
     \caption{Nus} \label{fig:nus}
