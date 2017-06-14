@@ -14,8 +14,8 @@
 \savebox\madeby{\tikz[color=black!50,opacity=0.2]\node{Created by Leix\_b};}
 \newsavebox\distribute
 \savebox\distribute{\tikz[color=black!50,opacity=0.2]\node{Do not distribute};}
-\newwatermark*[allpages,color=black!20,angle=60,scale=6,xpos=-20,ypos=15]{\usebox\distribute}
-\newwatermark*[allpages,color=black!20,angle=60,scale=6,xpos=-40,ypos=25]{\usebox\madeby}
+%\newwatermark*[allpages,color=black!20,angle=60,scale=6,xpos=-20,ypos=15]{\usebox\distribute}
+%\newwatermark*[allpages,color=black!20,angle=60,scale=6,xpos=-40,ypos=25]{\usebox\madeby}
 
 \usepackage{xfrac}
 
@@ -1109,7 +1109,7 @@ El flux magnètic en una \textbf{superfície tancada} $S$ és
 
 
 \subsection{Intensitat}
-\label{sub:intensitat}
+\label{sub:intensitat_circuit}
 
 \begin{equation}
     I = \frac{\Delta Q}{\Delta t} \qquad \left[\si{\ampere}\right]
@@ -1841,6 +1841,15 @@ interferència sigui constructiva o destructiva:
     \item Destructiva: $r' = (2n+1)\frac{\lambda}{4}$
     \item Constructiva (Ventres): $r' = n\frac{\lambda}{2}$
 \end{itemize}
+
+\subsection{Diferència de fase}
+\label{sub:diferencia_de_fase}
+
+\begin{equation}
+    \phi = k \Delta x
+\end{equation}
+
+
 
 \subsection{Ona estacionària o tub obert per dos extrems}
 \label{sub:ona_estacionaria_o_tub_obert_per_dos_extrems}
