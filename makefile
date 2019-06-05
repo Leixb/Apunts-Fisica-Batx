@@ -3,8 +3,8 @@ all:
 	make pdf
 fisica.aux:
 	make draft
-clean: fisica.pdf
-	rm fisica.pdf texput.log
+clean:
+	rm fisica.pdf texput.log fisica.aux fisica.bcf fisica.log fisica.out fisica.run.xml fisica.toc fisica.xwm
 pdf: fisica.tex preamble.tex fisica.aux
 	pdflatex fisica.tex
 draft: fisica.tex preamble.tex
